@@ -50,8 +50,8 @@ public class VehicleWorld extends World
         laneCount = 6;
         laneHeight = 48;
         spaceBetweenLanes = 6;
-        splitAtCenter = false;
-        twoWayTraffic = false;
+        splitAtCenter = true;
+        twoWayTraffic = true;
 
         
         // Init lane spawner objects 
@@ -130,6 +130,7 @@ public class VehicleWorld extends World
         return -1;
     }
     
+    //parameter int centreSpacing is useless
     public static int[] prepareLanes (World world, GreenfootImage target, VehicleSpawner[] spawners, int startY, int heightPerLane, int lanes, int spacing, boolean twoWay, boolean centreSplit, int centreSpacing)
     {
         // Declare an array to store the y values as I calculate them
