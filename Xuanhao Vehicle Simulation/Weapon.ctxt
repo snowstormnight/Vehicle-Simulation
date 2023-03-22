@@ -7,5 +7,5 @@ comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Weapon\ wants\ to\ do.\ This\ met
 comment2.params=damage\ speed
 comment2.target=Weapon(int,\ double)
 comment3.params=
-comment3.target=void\ damage()
+comment3.target=void\ damageRange()
 numComments=4

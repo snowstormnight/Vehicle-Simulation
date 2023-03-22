@@ -16,4 +16,9 @@ public class T extends Weapon
     {
         // Add your action code here.
     }
+    
+    public T(int damage, double speed)
+    {
+        super(damage, speed);
+    }
 }

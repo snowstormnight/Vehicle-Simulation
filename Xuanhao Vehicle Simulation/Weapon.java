@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * Write a description of class Weapon here.
@@ -26,8 +27,12 @@ public class Weapon extends SuperSmoothMover
         this.speed = speed;
     }
     
-    public static void damage()
+    public void damageRange()
     {
-        if(
+        ArrayList<BattleShip> b = (ArrayList<BattleShip>)(getObjectsInRange(50, BattleShip.class));
+        if(b.size() > 0)
+        {
+            
+        }
     }
 }
