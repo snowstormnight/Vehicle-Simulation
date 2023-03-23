@@ -14,7 +14,19 @@ public class AB extends Weapon
      */
     public void act()
     {
-        // Add your action code here.
+        if(!a.isEmpty())
+            {
+                getWorld().removeObject(this);
+                //random = Greenfoot.getRandomNumber(a.size());
+                //position[0] = (a.get(random)).getX();
+                //if(position[0] != 0)
+                //{
+                    //getWorld().removeObject(this);
+                //}
+                //position[1] = (a.get(random)).getY();
+                //x = position[0];
+                //y = position[1];
+            }
     }
     
     public AB(int damage, double speed)

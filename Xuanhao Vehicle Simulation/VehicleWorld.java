@@ -30,6 +30,7 @@ public class VehicleWorld extends World
     private int laneHeight, laneCount, spaceBetweenLanes;
     private int[] lanePositionsY;
     private VehicleSpawner[] laneSpawners;
+    public int c;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -39,8 +40,8 @@ public class VehicleWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1, false); 
-
-        setPaintOrder (Pedestrian.class, Bus.class, Car.class, Ambulance.class);
+        //, Bus.class
+        setPaintOrder (Pedestrian.class, Car.class, Ambulance.class);
 
         // set up background
         background = new GreenfootImage ("background01.png");
@@ -52,6 +53,13 @@ public class VehicleWorld extends World
         spaceBetweenLanes = 6;
         splitAtCenter = true;
         twoWayTraffic = true;
+        
+    
+        
+  
+        
+        
+        addObject(new AB(3,3), 10, 10);
 
         
         // Init lane spawner objects 
@@ -64,6 +72,10 @@ public class VehicleWorld extends World
 
     public void act () {
         spawn();
+        if(Weapon.x > 0)
+        {
+            addObject(new AB(3,3), Weapon.random,100);
+        }
     }
 
     private void spawn () {
@@ -75,7 +87,7 @@ public class VehicleWorld extends World
                 if (vehicleType == 0){
                     addObject(new Car(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 1){
-                    addObject(new Bus(laneSpawners[lane]), 0, 0);
+                    //addObject(new Bus(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 2){
                     addObject(new Ambulance(laneSpawners[lane]), 0, 0);
                 }

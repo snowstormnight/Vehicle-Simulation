@@ -12,11 +12,15 @@ public class Weapon extends SuperSmoothMover
     protected int damage;
     protected double speed;
     protected boolean us;
-    protected static ArrayList<ACJA> a;
+    protected static ArrayList<Actor> a;
     protected static ArrayList<BJA> b;
     protected static ArrayList<CJA> c;
     protected static ArrayList<DJA> d;
     protected static ArrayList<HJA> e;
+    protected int[] position;
+    public static boolean c1;
+    protected int m;
+    public static int x,y,random;
     
     
     /**
@@ -26,50 +30,87 @@ public class Weapon extends SuperSmoothMover
     
     
     
+    
+    
+    public Weapon(int damage, double speed)
+    {
+        this.damage = damage;
+        this.speed = speed;
+        position = new int[3];
+        position[0] = 0;
+        a = new ArrayList<Actor>();
+    }
+    
     public void act()
     {
-        a = (ArrayList<ACJA>)(getWorld().getObjects(ACJA.class));
+        a = (ArrayList<Actor>)(getWorld().getObjects(Actor.class));
+        
+        //a = (ArrayList<ACJA>)(getWorld().getObjects(ACJA.class));
         b = (ArrayList<BJA>)(getWorld().getObjects(BJA.class));
         c = (ArrayList<CJA>)(getWorld().getObjects(CJA.class));
         d = (ArrayList<DJA>)(getWorld().getObjects(DJA.class));
         e = (ArrayList<HJA>)(getWorld().getObjects(HJA.class));
-    }
-    
-    public Weapon(int damage, double speed, boolean us)
-    {
-        this.damage = damage;
-        this.speed = speed;
-        this.us = us;
-        
-        
-    }
-    
-    public double[] aim()
-    {
-        if(us)
-        {
-            int random = Greenfoot.getRandomNumber(5);
-            if(random == 0)
+        if(!a.isEmpty())
             {
-                random = Greenfoot.getRandomNumber(a.size());
-                
-            } else if(random == 1)
-            {
-                random = Greenfoot.getRandomNumber(b.size());
-            }else if(random == 2)
-            {
-                random = Greenfoot.getRandomNumber(c.size());
-            }else if(random == 3)
-            {
-                random = Greenfoot.getRandomNumber(d.size());
-            }else if(random == 4)
-            {
-                random = Greenfoot.getRandomNumber(e.size());
+                getWorld().removeObject(this);
+                //random = Greenfoot.getRandomNumber(a.size());
+                //position[0] = (a.get(random)).getX();
+                //if(position[0] != 0)
+                //{
+                    //getWorld().removeObject(this);
+                //}
+                //position[1] = (a.get(random)).getY();
+                //x = position[0];
+                //y = position[1];
             }
+            
+              
+    }
+    
+    public void aim()
+    {
+        //if(us)
+        //{
+            random = Greenfoot.getRandomNumber(5);
+            if(!a.isEmpty())
+            {
+                getWorld().removeObject(this);
+                //random = Greenfoot.getRandomNumber(a.size());
+                //position[0] = (a.get(random)).getX();
+                //if(position[0] != 0)
+                //{
+                    //getWorld().removeObject(this);
+                //}
+                //position[1] = (a.get(random)).getY();
+                //x = position[0];
+                //y = position[1];
+            }
+            
+                
+                
+                
+                
+                //return position;
+            //if(random == 0)
+           // {
+                
+           // } //else if(random == 1)
+           // {
+                //random = Greenfoot.getRandomNumber(b.size());
+            //}else if(random == 2)
+            //{
+                //random = Greenfoot.getRandomNumber(c.size());
+            //}else if(random == 3)
+           // {
+                //random = Greenfoot.getRandomNumber(d.size());
+            //}else if(random == 4)
+            //{
+                //random = Greenfoot.getRandomNumber(e.size());
+            //}
             
             
           
-        }
+        //}
     }
     
     public void damageRange()
