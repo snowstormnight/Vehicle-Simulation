@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BUS here.
+ * Write a description of class HCS here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BUS extends B
+public class HCS extends H
 {
     /**
-     * Act - do whatever the BUS wants to do. This method is called whenever
+     * Act - do whatever the HCS wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
