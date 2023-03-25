@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class RepairBoat here.
  * 
@@ -9,12 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class RepairBoat extends Ship
 {
     private GreenfootImage boat;
+    private ArrayList<SupplyBoat> sb;
     public RepairBoat(VehicleSpawner origin)
     {
         super(origin);
         maxSpeed = 2.5;
         speed = maxSpeed;
         boat = new GreenfootImage("Boat.png");
+        sb = new ArrayList<SupplyBoat>();
     }
     
     
@@ -27,14 +29,28 @@ public class RepairBoat extends Ship
     
     public void repair()
     {
-        SupplyBoat sb = (SupplyBoat)(getOneIntersectingObject(SupplyBoat.class));
+        sb = (ArrayList<SupplyBoat>)(getIntersectingObjects(SupplyBoat.class));
         
-        if(sb!=null)
+        if(sb.size() > 0)
+        {
+            for(int i = 0; i < sb.size(); i++)
+            {
+                if(sb.get(i) != null && sb.get(i).getSink() == true)
+                {
+                    sb.get(i).setImage(boat);
+                    sb.get(i).setSpeed(2);
+                    sb.get(i).setSink(false);
+                }
+            }
+        }
+        
+        /*if(sb!=null && sb.getSink() == true)
         {
             sb.setImage(boat);
             sb.setSpeed(2);
             sb.setSink(false);
         }
+        */
     }
     
     public boolean checkHitPedestrian ()

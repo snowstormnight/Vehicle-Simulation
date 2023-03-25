@@ -111,6 +111,7 @@ public class VehicleWorld extends World
             }
         }
         
+        //Chance to respawn a bullet
         if (Greenfoot.getRandomNumber (60) == 0){
             int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
             boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
@@ -121,7 +122,17 @@ public class VehicleWorld extends World
             }
         }
         
-        
+        //Chance to respawn a missile
+        if (Greenfoot.getRandomNumber (60) == 0){
+            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
+            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
+            if (spawnAtTop){
+                addObject (new Missile (1), xSpawnLocation, 50);
+            } else {
+                addObject (new Missile (-1), xSpawnLocation, 550);
+            }
+        }
+
     }
 
     /**
