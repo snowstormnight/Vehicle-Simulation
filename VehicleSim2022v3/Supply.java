@@ -18,4 +18,6 @@ public class Supply extends VerticalObjects
         setLocation (getX(), getY() + (int)(speed*direction));
         
     }
+    
+    //need to heal the aircraft carrier after
 }

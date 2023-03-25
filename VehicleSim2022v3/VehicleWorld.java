@@ -75,8 +75,9 @@ public class VehicleWorld extends World
             int lane = Greenfoot.getRandomNumber(laneCount);
             if (!laneSpawners[lane].isTouchingVehicle()){
                 int vehicleType = Greenfoot.getRandomNumber(5);
+                vehicleType = 0;
                 if (vehicleType == 0){
-                    addObject(new BattleShip(laneSpawners[lane]), 0, 0);
+                    //addObject(new BattleShip(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 1){
                     addObject(new AircraftCarrier(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 2){
