@@ -13,6 +13,7 @@ public abstract class Ship extends SuperSmoothMover
     protected int yOffset;
     protected VehicleSpawner origin;
     private GreenfootImage sank;
+    protected double save;
     
     protected abstract boolean checkHitPedestrian ();
 
@@ -28,7 +29,21 @@ public abstract class Ship extends SuperSmoothMover
             getImage().mirrorHorizontally();
         }
         sank = new GreenfootImage("Sink Boat.png");
+        
     }
+    
+    public void rainSlow()
+    {
+        maxSpeed = 0.5;
+    }
+    
+    public void getBack()
+    {
+        maxSpeed = save;
+    }
+    
+    
+    
     
     public void hitted()
     {

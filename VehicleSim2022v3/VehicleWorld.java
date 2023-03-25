@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * <h1>The new and vastly improved 2022 Vehicle Simulation Assignment.</h1>
  * <p> This is the first redo of the 8 year old project. Lanes are now drawn dynamically, allowing for
@@ -27,6 +27,7 @@ public class VehicleWorld extends World
     private int laneHeight, laneCount, spaceBetweenLanes;
     private int[] lanePositionsY;
     private VehicleSpawner[] laneSpawners;
+    public static boolean raining;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -38,11 +39,12 @@ public class VehicleWorld extends World
         super(1100, 619, 1, false); 
         
         //delete after, no need
-        //setPaintOrder (Pedestrian.class, Bus.class, Car.class, Ambulance.class);
+        setPaintOrder (Effect.class, Ship.class, VerticalObjects.class, Border.class);
 
         // set up background
         background = new GreenfootImage ("background.png");
         setBackground (background);
+        raining = false;
 
         // Set critical variables
         laneCount = 8;
@@ -67,17 +69,22 @@ public class VehicleWorld extends World
 
     public void act () {
         spawn();
+        
     }
 
+    public boolean getRain()
+    {
+        return raining;
+    }
+    
     private void spawn () {
         // Chance to spawn a vehicle
-        if (Greenfoot.getRandomNumber (60) == 0){
+        if (Greenfoot.getRandomNumber (120) == 0){
             int lane = Greenfoot.getRandomNumber(laneCount);
             if (!laneSpawners[lane].isTouchingVehicle()){
                 int vehicleType = Greenfoot.getRandomNumber(5);
-                vehicleType = 0;
                 if (vehicleType == 0){
-                    //addObject(new BattleShip(laneSpawners[lane]), 0, 0);
+                    addObject(new BattleShip(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 1){
                     addObject(new AircraftCarrier(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 2){
@@ -132,6 +139,14 @@ public class VehicleWorld extends World
             } else {
                 addObject (new Missile (-1), xSpawnLocation, 550);
             }
+        }
+        
+        if (!raining && Greenfoot.getRandomNumber(300) == 0){
+            addObject (new Rain(150), 550, 309);
+            raining = true;
+        }
+        if (raining && getObjects(Rain.class).size() == 0){
+            raining = false;
         }
 
     }

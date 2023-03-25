@@ -57,7 +57,7 @@ public class AircraftCarrier extends Ship
         {
             checkHitPedestrian();
         }
-        if(st.millisElapsed() > 1000)
+        if(st.millisElapsed() > 1000 && !VehicleWorld.raining)
         {
             maxSpeed = 1.5;
             speed = maxSpeed;

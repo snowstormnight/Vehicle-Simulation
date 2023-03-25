@@ -13,6 +13,7 @@ public class BattleShip extends Ship
         super(origin);
         maxSpeed = 2;
         speed = maxSpeed;
+        save = maxSpeed;
     }
     
     

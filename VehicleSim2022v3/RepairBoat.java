@@ -15,6 +15,7 @@ public class RepairBoat extends Ship
         super(origin);
         maxSpeed = 2.5;
         speed = maxSpeed;
+        save = maxSpeed;
         boat = new GreenfootImage("Boat.png");
         sb = new ArrayList<SupplyBoat>();
     }

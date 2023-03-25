@@ -13,6 +13,7 @@ public class Cruiser extends Ship
         super(origin);
         maxSpeed = 2.25;
         speed = maxSpeed;
+        save = maxSpeed;
     }
     
     
