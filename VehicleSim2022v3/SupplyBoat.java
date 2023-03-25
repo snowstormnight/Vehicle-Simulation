@@ -6,55 +6,45 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SupplyBoat extends Pedestrian
+public class SupplyBoat extends VerticalObjects
 {
     private boolean sink;
-    GreenfootImage sinking = new GreenfootImage("sinking.png");
-    GreenfootImage notsinking = new GreenfootImage("supply boat.png");
+    private GreenfootImage sank;
     public SupplyBoat(int direction) {
         super(direction);
-        sink = false;
-        if(direction == -1)
+        
+        if(direction == 1)
         {
-            setRotation(180);
+            setRotation(90);
         }
         else
         {
-            setRotation(0);
+            setRotation(270);
         }
+        sink = false;
+        sank = new GreenfootImage("Sink Boat.png");
+    }
+    
+    public void setSpeed(int speed)
+    {
+        this.speed = speed;
+    }
+    
+    public void setSink(boolean sink)
+    {
+        this.sink = sink;
+    }
+    
+    public boolean getSink()
+    {
+        return sink;
     }
     
     public void act()
     {
-        sink();
         setLocation (getX(), getY() + (int)(speed*direction));
-        if (direction == -1 && getY() < 100){
-            getWorld().removeObject(this);
-        } else if (direction == 1 && getY() > 550){
-            getWorld().removeObject(this);
-        }
+        
     }
     
     
-    
-    public void sink()
-    {
-        AC ac = (AC)(getOneIntersectingObject(AC.class));
-        B b = (B)(getOneIntersectingObject(B.class));
-        D d = (D)(getOneIntersectingObject(D.class));
-        
-        if(ac != null || b != null || d != null)
-        {
-            sink = true;
-            setImage(sinking);
-            speed = 0;
-        }
-        
-        if(isTouching(HealBoat.class))
-        {
-            setImage(notsinking);
-            speed = 2.5;
-        }
-       
-    }
 }

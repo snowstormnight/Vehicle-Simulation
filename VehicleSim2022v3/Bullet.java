@@ -1,17 +1,27 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Supply here.
+ * Write a description of class Bullet here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Supply extends VerticalObjects
+public class Bullet extends VerticalObjects
 {
-    public Supply(int direction)
+    public Bullet(int direction)
     {
         super(direction);
+        if(direction == 1)
+        {
+            setRotation(90);
+        }
+        else
+        {
+            setRotation(270);
+        }
     }
+    
+    
     
     public void act()
     {

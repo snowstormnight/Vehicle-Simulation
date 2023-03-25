@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.*;
 
 /**
  * <h1>The new and vastly improved 2022 Vehicle Simulation Assignment.</h1>
@@ -36,109 +35,90 @@ public class VehicleWorld extends World
     public VehicleWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 600, 1, false); 
-
+        super(1100, 619, 1, false); 
+        
+        //delete after, no need
         //setPaintOrder (Pedestrian.class, Bus.class, Car.class, Ambulance.class);
 
         // set up background
-        background = new GreenfootImage ("background2.png");
+        background = new GreenfootImage ("background.png");
         setBackground (background);
 
         // Set critical variables
-        laneCount = 6;
-        laneHeight = 70;
-        //before is 6
+        laneCount = 8;
+        laneHeight = 52;
         spaceBetweenLanes = 1;
         splitAtCenter = true;
         twoWayTraffic = true;
-
-     
+        
+        //add border for the world
+        addObject(new Border(false), 500, -500);
+        addObject(new Border(false), 500, 1500);
+        addObject(new Border(true), 1500, 300);
+        addObject(new Border(true), -500, 300);
         
         // Init lane spawner objects 
         laneSpawners = new VehicleSpawner[laneCount];
 
         // Prepare lanes method - draws the lanes
-        lanePositionsY = prepareLanes (this, background, laneSpawners, 59, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
+        lanePositionsY = prepareLanes (this, background, laneSpawners, 97, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
 
     }
 
     public void act () {
         spawn();
     }
-    
-    
-    
-    
 
     private void spawn () {
         // Chance to spawn a vehicle
-        if (Greenfoot.getRandomNumber (120) == 0){
+        if (Greenfoot.getRandomNumber (60) == 0){
             int lane = Greenfoot.getRandomNumber(laneCount);
             if (!laneSpawners[lane].isTouchingVehicle()){
                 int vehicleType = Greenfoot.getRandomNumber(5);
-                //vehicleType = 3;
                 if (vehicleType == 0){
-                    addObject(new AC(laneSpawners[lane], 0), 0, 0);
-                }else if (vehicleType == 1){
-                    addObject(new B(laneSpawners[lane], 0), 0, 0);
+                    addObject(new BattleShip(laneSpawners[lane]), 0, 0);
+                } else if (vehicleType == 1){
+                    addObject(new AircraftCarrier(laneSpawners[lane]), 0, 0);
+                } else if (vehicleType == 2){
+                    addObject(new Cruiser(laneSpawners[lane]), 0, 0);
                 }else if (vehicleType == 3){
-                    addObject(new D(laneSpawners[lane], 0), 0, 0);
+                    addObject(new Destroyer(laneSpawners[lane]), 0, 0);
                 }else if (vehicleType == 4){
-                    addObject(new HealBoat(laneSpawners[lane]), 0, 0);
+                    addObject(new RepairBoat(laneSpawners[lane]), 0, 0);
                 }
             }
         }
 
-        // Chance to spawn a Heavy Bullet
-        if (Greenfoot.getRandomNumber (120) == 0){
-            //int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
+        // Chance to spawn a supply
+        if (Greenfoot.getRandomNumber (60) == 0){
+            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
             boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            int randomX = Greenfoot.getRandomNumber(600) + 100;
             if (spawnAtTop){
-                addObject (new HB (1), randomX, 50);
+                addObject (new Supply (1), xSpawnLocation, 50);
             } else {
-                addObject (new HB (-1), randomX, 550);
+                addObject (new Supply (-1), xSpawnLocation, 550);
             }
         }
         
-        
-        if (Greenfoot.getRandomNumber (120) == 0){
+        //Chance to spawn a supply boat
+        if (Greenfoot.getRandomNumber (60) == 0){
+            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
             boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            int randomX = Greenfoot.getRandomNumber(600) + 100;
             if (spawnAtTop){
-                addObject (new LB (1), randomX, 50);
+                addObject (new SupplyBoat (1), xSpawnLocation, 50);
             } else {
-                addObject (new LB (-1), randomX, 550);
+                addObject (new SupplyBoat (-1), xSpawnLocation, 550);
             }
         }
         
-        //Chance to spawn a supply
-        if (Greenfoot.getRandomNumber (120) == 0){
+        if (Greenfoot.getRandomNumber (60) == 0){
+            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
             boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            int randomX = Greenfoot.getRandomNumber(600) + 100;
             if (spawnAtTop){
-                addObject (new Supply (1), randomX, 50);
+                addObject (new Bullet (1), xSpawnLocation, 50);
             } else {
-                addObject (new Supply (-1), randomX, 550);
+                addObject (new Bullet (-1), xSpawnLocation, 550);
             }
-        }
-        
-        //chance to spawn supply boat
-        if (Greenfoot.getRandomNumber (300) == 0){
-            //int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
-            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            int randomX = Greenfoot.getRandomNumber(600) + 100;
-            if (spawnAtTop){
-                addObject (new SupplyBoat (1), randomX, 50);
-            } else {
-                addObject (new SupplyBoat (-1), randomX, 550);
-            }
-        }
-        
-        //spawn a thunder
-        if(Greenfoot.getRandomNumber(240) == 0)
-        {
-            addObject(new Thunder(), 250 + Greenfoot.getRandomNumber(500), 100 + Greenfoot.getRandomNumber(400));
         }
         
         
@@ -199,11 +179,10 @@ public class VehicleWorld extends World
             lanePositions[i] = startY + spacing + (i * (heightPerLane+spacing)) + heightOffset ;
             
             // draw lane
-            //target.setColor(GREY_STREET); 
-            // the lane body
-            //target.fillRect (0, lanePositions[i] - heightOffset, target.getWidth(), heightPerLane);
+            target.setColor(GREY_STREET); 
+            
             // the lane spacing - where the white or yellow lines will get drawn
-            //target.fillRect(0, lanePositions[i] + heightOffset, target.getWidth(), spacing);
+            target.fillRect(0, lanePositions[i] + heightOffset, target.getWidth(), spacing);
 
             // Place spawners and draw lines depending on whether its 2 way and centre split
             if (twoWay && centreSplit){
