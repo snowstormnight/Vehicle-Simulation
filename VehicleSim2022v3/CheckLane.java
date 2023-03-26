@@ -29,6 +29,11 @@ public class CheckLane extends SuperSmoothMover
         move(speed);
     }
     
+    public int get()
+    {
+        return height;
+    }
+    
     public boolean checkSide()
     {
         return isTouching(Ship.class);

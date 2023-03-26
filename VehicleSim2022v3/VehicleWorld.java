@@ -67,7 +67,7 @@ public class VehicleWorld extends World
 
         for(int i = 0; i < 8; i++)
         {
-            System.out.println(laneSpawners[i].facesRightward ());
+            System.out.println(lanePositionsY[i]);
         }
     }
 
@@ -85,6 +85,15 @@ public class VehicleWorld extends World
         // Chance to spawn a vehicle
         if (Greenfoot.getRandomNumber (120) == 0){
             int lane = Greenfoot.getRandomNumber(laneCount);
+            int xPositionUp = 0;
+            if(lane <= 4)
+            {
+                xPositionUp = getWidth();
+            }
+            if(lane > 4)
+            {
+                xPositionUp = 0;
+            }
             if (!laneSpawners[lane].isTouchingVehicle()){
                 int vehicleType = Greenfoot.getRandomNumber(5);
                 vehicleType = 4;
@@ -97,7 +106,7 @@ public class VehicleWorld extends World
                 }else if (vehicleType == 3){
                     addObject(new Destroyer(laneSpawners[lane]), 0, 0);
                 }else if (vehicleType == 4){
-                    addObject(new RepairBoat(laneSpawners[lane]), 0, 0);
+                    addObject(new RepairBoat(laneSpawners[lane]), xPositionUp, lanePositionsY[lane]);
                 }
             }
         }

@@ -53,7 +53,6 @@ public class Lightning extends Effect
         else if(animationTimer.millisElapsed() >= 25)
         {
             setImage(animation[count]);
-            System.out.println("草泥馬");
             count++;
             if(count == 20)
             {

@@ -13,20 +13,37 @@ public class RepairBoat extends Ship
     private World w;
     private CheckLane down, up;
     private boolean add;
-    private int time;
+    private int location;
     public RepairBoat(VehicleSpawner origin)
     {
         super(origin);
+        
         maxSpeed = 3;
         speed = maxSpeed;
         save = maxSpeed;
         boat = new GreenfootImage("Boat.png");
         sb = new ArrayList<SupplyBoat>();
-        w = getWorld();
-        add = false;
+        
         down = new CheckLane(298, 50, maxSpeed);
         up = new CheckLane(298, 50, maxSpeed);
-        time = 0;
+        
+        
+    }
+    
+    public void addedToWorld(World w)
+    {
+        this.w = w;
+        if(w != null)
+        {
+            //System.out.println("yes");
+            down = new CheckLane(298, 50, maxSpeed);
+            up = new CheckLane(298, 50, maxSpeed);
+            w.addObject(up, location, 0);
+        }
+        else if(w == null)
+        {
+            //System.out.println("fuck");
+        }
     }
     
     
@@ -35,18 +52,10 @@ public class RepairBoat extends Ship
         drive();
         damage();
         repair();
-        if(!add && time > 2)
-        {
-            w.addObject(up, getX(), getY() + 49);
-            w.addObject(down, getX(), getY() + 49);
-        }
-        if(add)
-        {
-            down.setSpeed(maxSpeed);
-            up.setSpeed(maxSpeed);
-            System.out.println(up.checkSide());
-        }
-        time++;
+        
+        
+        
+        
     }
     
     public void repair()
@@ -66,13 +75,7 @@ public class RepairBoat extends Ship
             }
         }
         
-        /*if(sb!=null && sb.getSink() == true)
-        {
-            sb.setImage(boat);
-            sb.setSpeed(2);
-            sb.setSink(false);
-        }
-        */
+        
     }
     
 
