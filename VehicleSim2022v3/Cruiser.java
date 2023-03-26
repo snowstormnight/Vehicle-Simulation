@@ -11,7 +11,7 @@ public class Cruiser extends Ship
     public Cruiser(VehicleSpawner origin)
     {
         super(origin);
-        maxSpeed = 2.25;
+        maxSpeed = 2;
         speed = maxSpeed;
         save = maxSpeed;
     }

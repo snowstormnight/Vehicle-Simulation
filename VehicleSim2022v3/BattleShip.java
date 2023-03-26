@@ -11,7 +11,7 @@ public class BattleShip extends Ship
     public BattleShip(VehicleSpawner origin)
     {
         super(origin);
-        maxSpeed = 2;
+        maxSpeed = 1.5;
         speed = maxSpeed;
         save = maxSpeed;
     }

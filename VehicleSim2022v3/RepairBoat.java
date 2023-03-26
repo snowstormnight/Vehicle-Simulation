@@ -10,14 +10,23 @@ public class RepairBoat extends Ship
 {
     private GreenfootImage boat;
     private ArrayList<SupplyBoat> sb;
+    private World w;
+    private CheckLane down, up;
+    private boolean add;
+    private int time;
     public RepairBoat(VehicleSpawner origin)
     {
         super(origin);
-        maxSpeed = 2.5;
+        maxSpeed = 3;
         speed = maxSpeed;
         save = maxSpeed;
         boat = new GreenfootImage("Boat.png");
         sb = new ArrayList<SupplyBoat>();
+        w = getWorld();
+        add = false;
+        down = new CheckLane(298, 50, maxSpeed);
+        up = new CheckLane(298, 50, maxSpeed);
+        time = 0;
     }
     
     
@@ -26,6 +35,18 @@ public class RepairBoat extends Ship
         drive();
         damage();
         repair();
+        if(!add && time > 2)
+        {
+            w.addObject(up, getX(), getY() + 49);
+            w.addObject(down, getX(), getY() + 49);
+        }
+        if(add)
+        {
+            down.setSpeed(maxSpeed);
+            up.setSpeed(maxSpeed);
+            System.out.println(up.checkSide());
+        }
+        time++;
     }
     
     public void repair()
@@ -53,6 +74,8 @@ public class RepairBoat extends Ship
         }
         */
     }
+    
+
     
     public boolean checkHitPedestrian ()
     {

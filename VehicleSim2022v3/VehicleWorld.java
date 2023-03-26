@@ -65,6 +65,10 @@ public class VehicleWorld extends World
         // Prepare lanes method - draws the lanes
         lanePositionsY = prepareLanes (this, background, laneSpawners, 97, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
 
+        for(int i = 0; i < 8; i++)
+        {
+            System.out.println(laneSpawners[i].facesRightward ());
+        }
     }
 
     public void act () {
@@ -83,6 +87,7 @@ public class VehicleWorld extends World
             int lane = Greenfoot.getRandomNumber(laneCount);
             if (!laneSpawners[lane].isTouchingVehicle()){
                 int vehicleType = Greenfoot.getRandomNumber(5);
+                vehicleType = 4;
                 if (vehicleType == 0){
                     addObject(new BattleShip(laneSpawners[lane]), 0, 0);
                 } else if (vehicleType == 1){
