@@ -27,7 +27,7 @@ public class Rain extends Effect
         World w = getWorld();
         image = drawRain (w.getWidth(), w.getHeight(), 80);
         setImage(image);
-        controlEffect(duration, 90);
+        controlEffect(duration, 90, 90);
         duration--;
         ship =  (ArrayList<Ship>) w.getObjects(Ship.class);
         if(duration == 1)

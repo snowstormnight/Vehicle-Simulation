@@ -42,8 +42,11 @@ public class Bullet extends VerticalObjects
     
     public void act()
     {
+        check();
         setLocation (getX(), getY() + (int)(speed*direction));
         explosion();
+        
+        
     }
     
     public void explosion()
@@ -76,6 +79,8 @@ public class Bullet extends VerticalObjects
             speed = 0;
         }
     }
+    
+    
     
     public void setZero()
     {

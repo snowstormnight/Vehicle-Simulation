@@ -15,13 +15,13 @@ public class Effect extends Actor
         
     }
     
-    public void controlEffect(int duration, int remainTime)
+    public void controlEffect(int duration, int remainTime, int count)
     {
         if(duration <= 0)
         {
             getWorld().removeObject(this);
         }
-        else if(duration <= 90)
+        else if(duration <= count)
         {
             transparency = ((double)(duration)/(remainTime));
             int newTransparency = (int)(transparency * 255);

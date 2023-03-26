@@ -7,15 +7,16 @@ public abstract class VerticalObjects extends SuperSmoothMover
 {
     protected double speed;
     protected double maxSpeed;
-    protected int direction; // direction is always -1 or 1, for moving down or up, respectively
-    protected boolean awake;
+    protected int direction,count; // direction is always -1 or 1, for moving down or up, respectively
+    
     public VerticalObjects(int direction) {
         // choose a random speed
         maxSpeed = 2;
         speed = maxSpeed;
-        // start as awake 
-        awake = true;
+        
         this.direction = direction;
+        
+        count = 0;
     }
 
     /**
@@ -27,36 +28,31 @@ public abstract class VerticalObjects extends SuperSmoothMover
         
         
     }
-
-    public void move()
+    
+    
+    public void check()
     {
-        if (awake){
-            if (getOneObjectAtOffset(0, (int)(direction * getImage().getHeight()/2 + (int)(direction * speed)), Ship.class) == null){
-                setLocation (getX(), getY() + (int)(speed*direction));
-            }
-            
+        if(isTouching(Lightning.class))
+        {
+            speed = 0;
+            maxSpeed = 0;
         }
     }
     
-    /**
-     * Method to cause this Pedestrian to become knocked down - stop moving, turn onto side
-     */
-    public void knockDown () {
-        speed = 0;
-        setRotation (90);
-        awake = false;
-    }
 
-    /**
-     * Method to allow a downed Pedestrian to be healed
-     */
-    public void healMe () {
-        speed = maxSpeed;
-        setRotation (0);
-        awake = true;
+    public void move()
+    {
+        
+        if (getOneObjectAtOffset(0, (int)(direction * getImage().getHeight()/2 + (int)(direction * speed)), Ship.class) == null){
+        setLocation (getX(), getY() + (int)(speed*direction));
+        }
+            
+        
     }
     
-    public boolean isAwake () {
-        return awake;
-    }
+    
+        
 }
+    
+    
+

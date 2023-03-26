@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * This is the superclass for Vehicles.
@@ -47,14 +48,19 @@ public abstract class Ship extends SuperSmoothMover
     
     public void hitted()
     {
-        SupplyBoat sb = (SupplyBoat)(getOneIntersectingObject(SupplyBoat.class));
+        ArrayList<SupplyBoat> sb = (ArrayList<SupplyBoat>)(getIntersectingObjects(SupplyBoat.class));
         
         if(sb!=null)
         {
-            sb.setImage(sank);
-            sb.setSpeed(0);
-            sb.setSink(true);
+            for(int i = 0; i < sb.size(); i++)
+            {
+                sb.get(i).setImage(sank);
+                sb.get(i).setSpeed(0);
+                sb.get(i).setSink(true);
+            }
         }
+        
+        
     }
     
     public void addedToWorld (World w){

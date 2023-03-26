@@ -148,6 +148,13 @@ public class VehicleWorld extends World
         if (raining && getObjects(Rain.class).size() == 0){
             raining = false;
         }
+        
+        if(Greenfoot.getRandomNumber (180) == 0)
+        {
+            int xPoistion = Greenfoot.getRandomNumber (900) + 100;
+            int yPosition = Greenfoot.getRandomNumber (300) + 100;
+            addObject(new Lightning(60), xPoistion, yPosition);
+        }
 
     }
 

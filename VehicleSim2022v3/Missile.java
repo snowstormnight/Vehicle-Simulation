@@ -25,7 +25,7 @@ public class Missile extends VerticalObjects
     
     public void act()
     {
-        //setLocation (getX(), getY() + (int)(speed*direction));
+        check();
         if(st.millisElapsed() > 1000)
         {
             direction1 = Greenfoot.getRandomNumber(100)+40;
@@ -37,6 +37,5 @@ public class Missile extends VerticalObjects
             st.mark();
         }
         move(2);
-        
     }
 }
