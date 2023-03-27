@@ -13,6 +13,7 @@ public class Lightning extends Effect
     private int count;
     private SimpleTimer animationTimer;
     private GreenfootImage[] animation;
+    private GreenfootSound thunderSound;
     public Lightning(int duration)
     {
         this.duration = duration;
@@ -24,6 +25,7 @@ public class Lightning extends Effect
         {
             animation[i] = new GreenfootImage("Explosion/" + (i + 1) + ".png");
         }
+        thunderSound = new GreenfootSound("Rain.mp3");
     }
     
     public void act()
@@ -41,6 +43,11 @@ public class Lightning extends Effect
             
         }
         
+        
+    }
+    
+    public void addedToWorld()
+    {
         
     }
     

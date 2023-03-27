@@ -10,6 +10,7 @@ public class Rain extends Effect
 {
     private int duration;
     private ArrayList<Ship> ship;
+    private GreenfootSound rainSound;
     
     public void addedToWorld (World w){
         ArrayList<AircraftCarrier> a =  (ArrayList<AircraftCarrier>) w.getObjects(AircraftCarrier.class);
@@ -28,11 +29,18 @@ public class Rain extends Effect
         for (Destroyer d1 : d){
             d1.rainSlow();
         }
+        
+        
     }
     
     public Rain (int duration){
         this.duration = duration;
+        rainSound = new GreenfootSound("Rain1.mp3");
+        System.out.println("Played");
+        rainSound.play();
     }
+    
+    
     
     public void act()
     {
