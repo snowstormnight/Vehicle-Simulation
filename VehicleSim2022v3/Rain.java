@@ -12,9 +12,21 @@ public class Rain extends Effect
     private ArrayList<Ship> ship;
     
     public void addedToWorld (World w){
-        ship =  (ArrayList<Ship>) w.getObjects(Ship.class);
-        for (Ship s : ship){
-            s.rainSlow();
+        ArrayList<AircraftCarrier> a =  (ArrayList<AircraftCarrier>) w.getObjects(AircraftCarrier.class);
+        for (AircraftCarrier ac : a){
+            ac.rainSlow();
+        }
+        ArrayList<BattleShip> b =  (ArrayList<BattleShip>) w.getObjects(BattleShip.class);
+        for (BattleShip b1 : b){
+            b1.rainSlow();
+        }
+        ArrayList<Cruiser> c =  (ArrayList<Cruiser>) w.getObjects(Cruiser.class);
+        for (Cruiser c1 : c){
+            c1.rainSlow();
+        }
+        ArrayList<Destroyer> d =  (ArrayList<Destroyer>) w.getObjects(Destroyer.class);
+        for (Destroyer d1 : d){
+            d1.rainSlow();
         }
     }
     

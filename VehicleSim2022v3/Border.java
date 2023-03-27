@@ -20,7 +20,7 @@ public class Border extends Actor
     {
         if(isTouching(SuperSmoothMover.class))
         {
-            removeTouching(SuperSmoothMover.class);
+            removeTouching(Actor.class);
         }
     }
 }

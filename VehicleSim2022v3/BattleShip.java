@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BattleShip extends Ship
 {
-    public BattleShip(VehicleSpawner origin)
+    public BattleShip(VehicleSpawner origin, int lane)
     {
-        super(origin);
+        super(origin, lane);
         maxSpeed = 1.5;
         speed = maxSpeed;
         save = maxSpeed;

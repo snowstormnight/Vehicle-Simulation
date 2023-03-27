@@ -18,13 +18,13 @@ public class Bullet extends VerticalObjects
     public Bullet(int direction)
     {
         super(direction);
-        if(direction == 1)
+        if(direction == -1)
         {
-            setRotation(90);
+            setRotation(270);
         }
         else
         {
-            setRotation(270);
+            setRotation(90);
         }
         animation = new GreenfootImage[20];
         ship = new ArrayList<Ship>();

@@ -56,8 +56,8 @@ public class VehicleWorld extends World
         //add border for the world
         addObject(new Border(false), 500, -500);
         addObject(new Border(false), 500, 1500);
-        addObject(new Border(true), 1500, 300);
-        addObject(new Border(true), -500, 300);
+        addObject(new Border(true), 2500, 300);
+        addObject(new Border(true), -2500, 300);
         
         // Init lane spawner objects 
         laneSpawners = new VehicleSpawner[laneCount];
@@ -65,10 +65,9 @@ public class VehicleWorld extends World
         // Prepare lanes method - draws the lanes
         lanePositionsY = prepareLanes (this, background, laneSpawners, 97, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
 
-        for(int i = 0; i < 8; i++)
-        {
-            System.out.println(lanePositionsY[i]);
-        }
+        
+        
+        
     }
 
     public void act () {
@@ -83,30 +82,32 @@ public class VehicleWorld extends World
     
     private void spawn () {
         // Chance to spawn a vehicle
-        if (Greenfoot.getRandomNumber (120) == 0){
-            int lane = Greenfoot.getRandomNumber(laneCount);
-            int xPositionUp = 0;
-            if(lane <= 4)
+        if (Greenfoot.getRandomNumber (60) == 0){
+            int lane = Greenfoot.getRandomNumber(laneCount);//laneCount
+            //lane = 3;
+            int xPosition = 0;
+            if(lane < 4)
             {
-                xPositionUp = getWidth();
+                xPosition = getWidth();
             }
             if(lane > 4)
             {
-                xPositionUp = 0;
+                xPosition = 0;
             }
-            if (!laneSpawners[lane].isTouchingVehicle()){
+            if (!laneSpawners[lane].isTouchingVehicle ()){//isTouchingVehicle()
                 int vehicleType = Greenfoot.getRandomNumber(5);
-                vehicleType = 4;
+                //vehicleType = 1;
                 if (vehicleType == 0){
-                    addObject(new BattleShip(laneSpawners[lane]), 0, 0);
+                    addObject(new AircraftCarrier(laneSpawners[lane], lane), 0, 0);
                 } else if (vehicleType == 1){
-                    addObject(new AircraftCarrier(laneSpawners[lane]), 0, 0);
+                    addObject(new RepairBoat(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 2){
-                    addObject(new Cruiser(laneSpawners[lane]), 0, 0);
+                    addObject(new Cruiser(laneSpawners[lane], lane), 0, 0);
                 }else if (vehicleType == 3){
-                    addObject(new Destroyer(laneSpawners[lane]), 0, 0);
+                    addObject(new Destroyer(laneSpawners[lane], lane), 0, 0);
                 }else if (vehicleType == 4){
-                    addObject(new RepairBoat(laneSpawners[lane]), xPositionUp, lanePositionsY[lane]);
+                    addObject(new BattleShip(laneSpawners[lane], lane), 0, 0);
+                    
                 }
             }
         }

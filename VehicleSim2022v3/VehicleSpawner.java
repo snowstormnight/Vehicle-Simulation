@@ -12,7 +12,7 @@ public class VehicleSpawner extends Actor
 {
     public static final Color TRANSPARENT_RED = new Color (255, 0, 0, 128);
     
-    public static final int DIST_BETWEEN_CARS = 128;
+    public static final int DIST_BETWEEN_CARS = 400;
     
     private GreenfootImage image;
     
@@ -26,7 +26,7 @@ public class VehicleSpawner extends Actor
         this.height = (int)(laneHeight * 0.75);
         width = DIST_BETWEEN_CARS;
         // set this to true to see the Spawners - might help with understanding of how this works:
-        visible = false;
+        visible = true;
         image = new GreenfootImage (width, height);
         if(visible){
             image.setColor(TRANSPARENT_RED);
@@ -39,9 +39,8 @@ public class VehicleSpawner extends Actor
         return rightward;
     }
     
-    
-    
+        
     public boolean isTouchingVehicle () {
-        return this.isTouching(Ship.class);
+        return isTouching(Ship.class);
     }
 }

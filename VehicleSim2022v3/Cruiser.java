@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cruiser extends Ship
 {
-    public Cruiser(VehicleSpawner origin)
+    public Cruiser(VehicleSpawner origin, int lane)
     {
-        super(origin);
+        super(origin, lane);
         maxSpeed = 2;
         speed = maxSpeed;
         save = maxSpeed;

@@ -15,13 +15,13 @@ public abstract class Ship extends SuperSmoothMover
     protected VehicleSpawner origin;
     private GreenfootImage sank;
     protected double save;
+    protected int lane;
     
-    protected abstract boolean checkHitPedestrian ();
 
-    public Ship (VehicleSpawner origin) {
+    public Ship (VehicleSpawner origin, int lane) {
         this.origin = origin;
         moving = true;
-        
+        this.lane = lane;
         if (origin.facesRightward()){
             direction = 1;
             
@@ -99,6 +99,7 @@ public abstract class Ship extends SuperSmoothMover
         // Ahead is a generic vehicle - we don't know what type BUT
         // since every Vehicle "promises" to have a getSpeed() method,
         // we can call that on any vehicle to find out it's speed
+        //Ship ahead = (Ship) getOneObjectAtOffset (direction * (int)(speed + getImage().getWidth()/2 + 4), 0, Ship.class);
         Ship ahead = (Ship) getOneObjectAtOffset (direction * (int)(speed + getImage().getWidth()/2 + 4), 0, Ship.class);
         if (ahead == null)
         {

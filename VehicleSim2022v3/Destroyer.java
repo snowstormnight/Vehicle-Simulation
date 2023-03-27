@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Destroyer extends Ship
 {
-    public Destroyer(VehicleSpawner origin)
+    public Destroyer(VehicleSpawner origin, int lane)
     {
-        super(origin);
+        super(origin, lane);
         maxSpeed = 2.5;
         speed = maxSpeed;
         save = maxSpeed;

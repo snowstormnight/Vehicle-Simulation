@@ -13,9 +13,9 @@ public class AircraftCarrier extends Ship
     private GreenfootImage[] animation;
     private int count;
     private GreenfootImage boat;
-    public AircraftCarrier(VehicleSpawner origin)
+    public AircraftCarrier(VehicleSpawner origin, int lane)
     {
-        super(origin);
+        super(origin, lane);
         maxSpeed = 1.5;
         speed = maxSpeed;
         st = new SimpleTimer();
@@ -57,6 +57,7 @@ public class AircraftCarrier extends Ship
         {
             checkHitPedestrian();
         }
+        //super.drive();
         if(st.millisElapsed() > 1000 && !VehicleWorld.raining)
         {
             maxSpeed = 1.5;
