@@ -15,7 +15,9 @@ public abstract class Ship extends SuperSmoothMover
     protected VehicleSpawner origin;
     private GreenfootImage sank;
     protected double save;
-    protected int lane;
+    protected int lane, hp, count;
+    private GreenfootImage[] animation;
+    private SimpleTimer st;
     
 
     public Ship (VehicleSpawner origin, int lane) {
@@ -30,7 +32,14 @@ public abstract class Ship extends SuperSmoothMover
             getImage().mirrorHorizontally();
         }
         sank = new GreenfootImage("Sink Boat.png");
-        
+        animation = new GreenfootImage[20];
+        for(int i = 0; i < 20; i++)
+        {
+            animation[i] = new GreenfootImage("Explosion/" + (i+1) + ".png");
+        }
+        st = new SimpleTimer();
+        st.mark();
+        count = 0;
     }
     
     public void rainSlow()
@@ -115,10 +124,41 @@ public abstract class Ship extends SuperSmoothMover
     public void damage()
     {
         Bullet b = (Bullet)(getOneIntersectingObject(Bullet.class));
+        Missile m = (Missile)(getOneIntersectingObject(Missile.class));
         if(b!=null)
         {
             getWorld().removeObject(b);
+            hp --;
         }
+        if(m != null)
+        {
+            getWorld().removeObject(m);
+            hp--;
+        }
+        System.out.println(hp);
+        if(hp < 0)
+        {
+            if(st.millisElapsed() < 50)
+            {
+                return;
+            }
+            else if(st.millisElapsed() >= 50)
+            {
+                setImage(animation[count]);
+                count++;
+                if(count == 20)
+                {
+                    count = 0;
+                    getWorld().removeObject(this);
+                }
+                st.mark();
+            }
+        }
+    }
+    
+    public boolean inWorld1()
+    {
+        return getWorld() != null;
     }
 
     /**

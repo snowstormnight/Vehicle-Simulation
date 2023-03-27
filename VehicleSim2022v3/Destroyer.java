@@ -14,6 +14,7 @@ public class Destroyer extends Ship
         maxSpeed = 2.5;
         speed = maxSpeed;
         save = maxSpeed;
+        hp = 3;
     }
     
     

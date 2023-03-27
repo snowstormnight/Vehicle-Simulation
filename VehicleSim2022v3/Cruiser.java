@@ -14,6 +14,7 @@ public class Cruiser extends Ship
         maxSpeed = 2;
         speed = maxSpeed;
         save = maxSpeed;
+        hp = 4;
     }
     
     

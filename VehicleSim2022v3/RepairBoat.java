@@ -37,6 +37,7 @@ public class RepairBoat extends Ship
         coolTime = 60;
         direction1 = 0;
         direction2 = 12;
+        hp = 4;
     }
     
     public void addedToWorld(World w)
@@ -147,13 +148,13 @@ public class RepairBoat extends Ship
             coolTime = 0;
         }
         drive();
-        damage();
+        //damage();
         repair();
         up.setSpeed(speed);
         down.setSpeed(speed);
-        
-        
         coolTime--;
+        damage();
+        
     }
     
     public boolean changeLane()

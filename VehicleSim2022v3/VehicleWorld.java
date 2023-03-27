@@ -82,7 +82,7 @@ public class VehicleWorld extends World
     
     private void spawn () {
         // Chance to spawn a vehicle
-        if (Greenfoot.getRandomNumber (60) == 0){
+        if (Greenfoot.getRandomNumber (240) == 0){
             int lane = Greenfoot.getRandomNumber(laneCount);//laneCount
             //lane = 3;
             int xPosition = 0;
@@ -96,7 +96,7 @@ public class VehicleWorld extends World
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){//isTouchingVehicle()
                 int vehicleType = Greenfoot.getRandomNumber(5);
-                //vehicleType = 1;
+                vehicleType = 1;
                 if (vehicleType == 0){
                     addObject(new AircraftCarrier(laneSpawners[lane], lane), 0, 0);
                 } else if (vehicleType == 1){
