@@ -26,7 +26,7 @@ public class VehicleSpawner extends Actor
         this.height = (int)(laneHeight * 0.75);
         width = DIST_BETWEEN_CARS;
         // set this to true to see the Spawners - might help with understanding of how this works:
-        visible = true;
+        visible = false;
         image = new GreenfootImage (width, height);
         if(visible){
             image.setColor(TRANSPARENT_RED);

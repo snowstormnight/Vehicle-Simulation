@@ -21,7 +21,7 @@ public class CheckLane extends SuperSmoothMover
         this.direction = direction;
         image = new GreenfootImage(width, height);
         image.setColor(TRANSPARENT_RED);
-        image.fillRect(0, 0, width-1, height - 1);
+        //image.fillRect(0, 0, width-1, height - 1);
         setImage(image);
     }
     

@@ -117,7 +117,6 @@ public class RepairBoat extends Ship
             {
                 setRotation(-1*direction2);
                 direction1 = -1*direction2;
-                System.out.println(direction1);
                 oneTime = false;
             }
             else if(!up.checkSide() && time > 0 && oneTime  && changeLane())
