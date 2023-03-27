@@ -29,15 +29,14 @@ public class Rain extends Effect
         for (Destroyer d1 : d){
             d1.rainSlow();
         }
-        
+        rainSound.play();
         
     }
     
     public Rain (int duration){
         this.duration = duration;
         rainSound = new GreenfootSound("Rain1.mp3");
-        System.out.println("Played");
-        rainSound.play();
+        
     }
     
     

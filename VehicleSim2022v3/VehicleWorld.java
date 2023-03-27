@@ -29,6 +29,7 @@ public class VehicleWorld extends World
     private VehicleSpawner[] laneSpawners;
     public static boolean raining;
 
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -72,7 +73,6 @@ public class VehicleWorld extends World
 
     public void act () {
         spawn();
-        
     }
 
     public boolean getRain()
