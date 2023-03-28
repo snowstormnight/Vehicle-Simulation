@@ -32,12 +32,17 @@ public class Lightning extends Effect
     {
         duration--;
         ArrayList<VerticalObjects> vo = (ArrayList<VerticalObjects>)(getObjectsInRange(150,VerticalObjects.class));
-        
+        ArrayList<Ship> s = (ArrayList<Ship>)(getObjectsInRange(150,Ship.class));
         if(duration < 30)
         {
             for(int i = 0; i < vo.size(); i++)
             {
                 getWorld().removeObject(vo.get(i));
+            }
+            for(int i = 0; i < s.size(); i++)
+            {
+                s.get(i).decreaseHP();
+                
             }
             explode();
             

@@ -21,8 +21,9 @@ public class BattleShip extends Ship
     public void act()
     {
         drive();
-        damage();
         hitted();
+        damage();
+        
     }
     
     public boolean checkHitPedestrian ()

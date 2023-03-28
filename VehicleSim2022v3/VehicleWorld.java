@@ -28,6 +28,7 @@ public class VehicleWorld extends World
     private int[] lanePositionsY;
     private VehicleSpawner[] laneSpawners;
     public static boolean raining;
+    private VerticalObjectsSpawn[] spawn;
 
     
     /**
@@ -59,6 +60,11 @@ public class VehicleWorld extends World
         addObject(new Border(false), 500, 1500);
         addObject(new Border(true), 2500, 300);
         addObject(new Border(true), -2500, 300);
+        spawn = new VerticalObjectsSpawn[6];
+        for(int i = 0; i < 6; i++)
+        {
+            spawn[i] = new VerticalObjectsSpawn();
+        }
         
         // Init lane spawner objects 
         laneSpawners = new VehicleSpawner[laneCount];
@@ -66,7 +72,12 @@ public class VehicleWorld extends World
         // Prepare lanes method - draws the lanes
         lanePositionsY = prepareLanes (this, background, laneSpawners, 97, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
 
-        
+        addObject(spawn[0], 215, 25);
+        addObject(spawn[1], 490, 25);
+        addObject(spawn[2], 765, 25);
+        addObject(spawn[3], 215, 575);
+        addObject(spawn[4], 490, 575);
+        addObject(spawn[5], 765, 575);
         
         
     }
@@ -82,7 +93,7 @@ public class VehicleWorld extends World
     
     private void spawn () {
         // Chance to spawn a vehicle
-        if (Greenfoot.getRandomNumber (240) == 0){
+        if (Greenfoot.getRandomNumber (60) == 0){
             int lane = Greenfoot.getRandomNumber(laneCount);//laneCount
             //lane = 3;
             int xPosition = 0;
@@ -96,7 +107,7 @@ public class VehicleWorld extends World
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){//isTouchingVehicle()
                 int vehicleType = Greenfoot.getRandomNumber(5);
-                vehicleType = 1;
+                //vehicleType = 0;
                 if (vehicleType == 0){
                     addObject(new AircraftCarrier(laneSpawners[lane], lane), 0, 0);
                 } else if (vehicleType == 1){
@@ -111,7 +122,63 @@ public class VehicleWorld extends World
                 }
             }
         }
-
+        
+        
+        if(Greenfoot.getRandomNumber (15) == 0){
+            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
+            if (spawnAtTop){
+                int r = Greenfoot.getRandomNumber(4);
+                
+                if(r == 0)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new Supply (1)), 215 + r1*275, 25);
+                }
+                else if(r == 1)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new SupplyBoat (1)), 215 + r1*275, 25);
+                }
+                else if(r == 2)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new Bullet (1)), 215 + r1*275, 25);
+                }
+                else if(r == 3)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new Missile(1)), 215 + r1*275, 25);
+                }
+                    
+            }
+            else
+            {
+                int r = Greenfoot.getRandomNumber(4);
+                
+                if(r == 0)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new Supply (-1)), 215 + r1*275, 575);
+                }
+                else if(r == 1)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new SupplyBoat (-1)), 215 + r1*275, 575);
+                }
+                else if(r == 2)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new Bullet (-1)), 215 + r1*275, 575);
+                }
+                else if(r == 3)
+                {
+                    int r1 = Greenfoot.getRandomNumber(3);
+                    addObject((new Missile(-1)), 215 + r1*275, 575);
+                }
+            }
+        }
+        
+        /*
         // Chance to spawn a supply
         if (Greenfoot.getRandomNumber (60) == 0){
             int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
@@ -155,6 +222,7 @@ public class VehicleWorld extends World
                 addObject (new Missile (-1), xSpawnLocation, 550);
             }
         }
+        */
         
         if (!raining && Greenfoot.getRandomNumber(300) == 0){
             addObject (new Rain(150), 550, 309);

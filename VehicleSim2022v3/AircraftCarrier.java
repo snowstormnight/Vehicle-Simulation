@@ -36,12 +36,14 @@ public class AircraftCarrier extends Ship
     public void act()
     {
         drive();
-        takeIn();
-        hitted();
-        if(speed!=0)
+        
+        if(!exploded)
         {
-            setImage(boat);
+            takeIn();
+            hitted();
         }
+        
+        
         damage();
     }
     
@@ -79,7 +81,7 @@ public class AircraftCarrier extends Ship
             count++;
             if(count == 10)
             {
-                
+                setImage(boat);
                 count = 0;
             }
         }

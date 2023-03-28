@@ -10,7 +10,7 @@ public abstract class Ship extends SuperSmoothMover
     protected double maxSpeed;
     protected double speed;
     protected int direction; // 1 = right, -1 = left
-    protected boolean moving;
+    protected boolean moving, exploded;
     protected int yOffset;
     protected VehicleSpawner origin;
     private GreenfootImage sank;
@@ -40,6 +40,7 @@ public abstract class Ship extends SuperSmoothMover
         st = new SimpleTimer();
         st.mark();
         count = 0;
+        exploded = false;
     }
     
     public void rainSlow()
@@ -121,6 +122,11 @@ public abstract class Ship extends SuperSmoothMover
         
     }   
     
+    public void decreaseHP()
+    {
+        --hp;
+    }
+    
     public void damage()
     {
         Bullet b = (Bullet)(getOneIntersectingObject(Bullet.class));
@@ -135,9 +141,16 @@ public abstract class Ship extends SuperSmoothMover
             getWorld().removeObject(m);
             hp--;
         }
-        System.out.println(hp);
         if(hp < 0)
         {
+            exploded = true;
+            ArrayList<VerticalObjects> vo = new ArrayList<VerticalObjects>();
+            
+            vo = (ArrayList<VerticalObjects>)(getObjectsInRange(130,VerticalObjects.class));
+            for(int i = 0; i < vo.size(); i++)
+            {
+                getWorld().removeObject(vo.get(i));
+            }
             if(st.millisElapsed() < 50)
             {
                 return;

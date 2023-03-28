@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class VerticalObjectsSpawnPlace extends SuperSmoothMover
+public class VerticalObjectsSpawn extends SuperSmoothMover
 {
-    public void VerticalObjectsSpawnPlace()
+    public void VerticalObjectsSpawn()
     {
         
     }

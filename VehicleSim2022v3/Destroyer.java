@@ -21,8 +21,8 @@ public class Destroyer extends Ship
     public void act()
     {
         drive();
-        damage();
         hitted();
+        damage();
     }
     
     public boolean checkHitPedestrian ()
