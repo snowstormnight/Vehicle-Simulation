@@ -106,18 +106,16 @@ public class VehicleWorld extends World
                 xPosition = 0;
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){//isTouchingVehicle()
-                int vehicleType = Greenfoot.getRandomNumber(5);
+                int vehicleType = Greenfoot.getRandomNumber(4);
                 //vehicleType = 0;
                 if (vehicleType == 0){
-                    addObject(new AircraftCarrier(laneSpawners[lane], lane), 0, 0);
+                    addObject(new AircraftCarrier(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 1){
                     addObject(new RepairBoat(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 2){
-                    addObject(new Cruiser(laneSpawners[lane], lane), 0, 0);
+                    addObject(new Cruiser(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 }else if (vehicleType == 3){
-                    addObject(new Destroyer(laneSpawners[lane], lane), 0, 0);
-                }else if (vehicleType == 4){
-                    addObject(new BattleShip(laneSpawners[lane], lane), 0, 0);
+                    addObject(new BattleShip(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                     
                 }
             }

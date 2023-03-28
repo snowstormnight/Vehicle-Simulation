@@ -8,8 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class VerticalObjectsSpawn extends SuperSmoothMover
 {
+    private int hp;
     public void VerticalObjectsSpawn()
     {
-        
+        hp = 20;
+    }
+    
+    public void act()
+    {
+        if(isTouching(Weapon.class))
+        {
+            hp--;
+        }
+        if(hp == 0)
+        {
+            
+        }
     }
 }

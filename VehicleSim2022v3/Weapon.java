@@ -8,12 +8,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Weapon extends SuperSmoothMover
 {
-    private int random;
+    private int random, count;
     private World w;
+    private GreenfootImage[] animation;
+    private SimpleTimer st;
     
     public Weapon()
     {
         int random = Greenfoot.getRandomNumber(6);
+        animation = new GreenfootImage[20];
+        for(int i = 0; i < 20; i++)
+        {
+            animation[i] = new GreenfootImage("Explosion/" + (i+1) + ".png");
+        }
+        st = new SimpleTimer();
+        st.mark();
+        count = 0;
     }
     
     
@@ -44,6 +54,7 @@ public class Weapon extends SuperSmoothMover
             turnTowards(765, 575);
         }
         move(4);
+        
     }
     
     public void addedToWorld()
@@ -51,6 +62,25 @@ public class Weapon extends SuperSmoothMover
         w = getWorld();
         
         
+    }
+    
+    public void destroyed()
+    {
+        if(st.millisElapsed() < 50)
+            {
+                return;
+            }
+            else if(st.millisElapsed() >= 50)
+            {
+                setImage(animation[count]);
+                count++;
+                if(count == 20)
+                {
+                    count = 0;
+                    setImage
+                }
+                st.mark();
+            }
     }
     
     
