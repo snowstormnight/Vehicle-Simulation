@@ -29,7 +29,7 @@ public class AircraftCarrier extends Ship
         {
             animation[i] = new GreenfootImage("Take In Animation/" + (i+1) + ".png");
         }
-        hp = 9;
+        hp = 8;
     }
     
     

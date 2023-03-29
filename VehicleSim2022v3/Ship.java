@@ -52,8 +52,7 @@ public abstract class Ship extends SuperSmoothMover
         maxSpeed = save;
     }
     
-    
-    
+
     //This method is used to check if a supply boat is hit with ship class, if yes, set the image to sink
     public void hitted()
     {
@@ -70,32 +69,7 @@ public abstract class Ship extends SuperSmoothMover
         
         
     }
-    
-    
-
-    /*
-     * A method used by all Vehicles to check if they are at the edge.
-     * 
-     * Note that this World is set to unbounded (The World's super class is (int, int, int, FALSE) which means
-     * that objects should not be stopped from leaving the World. However, this introduces a challenge as there
-     * is the potential for objects to disappear off-screen but still be fully acting and thus wasting resources
-     * and affecting the simulation even though they are not visible.
-     
-    protected boolean checkEdge() {
-        if (direction == 1)
-        { // if moving right, check 200 pixels to the right (above max X)
-            if (getX() > getWorld().getWidth() + 500){
-                return true;
-            }
-        } 
-        else 
-        { // if moving left, check 200 pixels to the left (negative values)
-            if (getX() < -500){
-                return true;
-            }
-        }
-        return false;
-    }*/
+        
 
     /**
      * Method that deals with movement. Speed can be set by individual subclasses in their constructors
@@ -131,6 +105,7 @@ public abstract class Ship extends SuperSmoothMover
             maxSpeed = 0;
             speed = 0;
             exploded = true;
+            
             if(st.millisElapsed() < 50)
             {
                 return;
@@ -141,6 +116,11 @@ public abstract class Ship extends SuperSmoothMover
                 count++;
                 if(count == 20)
                 {
+                    ArrayList<Ship> s = (ArrayList<Ship>)(getObjectsInRange(150,Ship.class));
+                    for(int i = 0; i < s.size(); i++)
+                    {
+                        s.get(i).decreaseHP();
+                    }
                     count = 0;
                     getWorld().removeObject(this);
                 }

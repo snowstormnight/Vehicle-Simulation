@@ -30,7 +30,6 @@ public class RepairBoat extends Ship
         save = maxSpeed;
         boat = new GreenfootImage("Boat.png");
         sb = new ArrayList<SupplyBoat>();
-        bus = new GreenfootImage("ambulance.png");
         inWorld = true;
         time = 100;
         oneTime = true;
@@ -43,12 +42,11 @@ public class RepairBoat extends Ship
     {
         this.w = w;
         y = getY();
-        
         down = new CheckLane(500, 40, maxSpeed, direction);
         up = new CheckLane(500, 40, maxSpeed, direction);
         w.addObject(up, location + (150*direction), y - 51);
         w.addObject(down, location + (150*direction), y + 51);
-        hp = 5;
+        hp = 6;
     }
     
     
@@ -62,15 +60,11 @@ public class RepairBoat extends Ship
         {
                 if(lane == 4 && !down.checkSide()  && time > 0 && oneTime && changeLane())
                 {
-                    setRotation(direction2);
-                    direction1 = direction2;
-                    oneTime = false;
+                    changeLane2();
                 }
                 if(lane == 0 && !down.checkSide()  && time > 0 && oneTime  && changeLane())
                 {
-                    setRotation(-1*direction2);
-                    direction1 = -1*direction2;
-                    oneTime = false;
+                    changeLane1();
                 }
             
         }
@@ -78,36 +72,26 @@ public class RepairBoat extends Ship
         {
             if(lane == 3 && !up.checkSide()  && time > 0 && oneTime && changeLane())
                 {
-                    setRotation(direction2);
-                    direction1 = direction2;
-                    oneTime = false;
+                    changeLane2();
                 }
             if(lane == 7 && !up.checkSide()  && time > 0 && oneTime  && changeLane())
             {
-                setRotation(-1*direction2);
-                direction1 = -1*direction2;
-                oneTime = false;
+                changeLane1();
             }
         }
         if(inWorld && (lane == 1 || lane == 2))
         {
             if(!up.checkSide() && !down.checkSide() && time > 0 && oneTime  && changeLane())
             {
-                setRotation(-1*direction2);
-                direction1 = -1*direction2;
-                oneTime = false;
+                changeLane1();
             }
             else if(!up.checkSide() && time > 0 && oneTime  && changeLane())
             {
-                setRotation(direction2);
-                direction1 = direction2;
-                oneTime = false;
+                changeLane2();
             }
             else if(!down.checkSide() && time > 0 && oneTime  && changeLane())
             {
-                setRotation(-1*direction2);
-                direction1 = -1*direction2;
-                oneTime = false;
+                changeLane1();
             }
         }
         
@@ -115,21 +99,15 @@ public class RepairBoat extends Ship
         {
             if(!up.checkSide() && !down.checkSide() && time > 0 && oneTime  && changeLane())
             {
-                setRotation(-1*direction2);
-                direction1 = -1*direction2;
-                oneTime = false;
+                changeLane1();
             }
             else if(!up.checkSide() && time > 0 && oneTime  && changeLane())
             {
-                setRotation(-direction2);
-                direction1 = -direction2;
-                oneTime = false;
+                changeLane1();
             }
             else if(!down.checkSide() && time > 0 && oneTime  && changeLane())
             {
-                setRotation(1*direction2);
-                direction1 = 1*direction2;
-                oneTime = false;
+                changeLane2();
             }
         }
             
@@ -152,6 +130,7 @@ public class RepairBoat extends Ship
         down.setSpeed(speed);
         coolTime--;
         damage();
+        
     }
     
     public boolean changeLane()
@@ -165,9 +144,18 @@ public class RepairBoat extends Ship
         return false;
     }
     
-    public void changeLaneTop()
+    public void changeLane1()
     {
-        
+        setRotation(-1*direction2);
+        direction1 = -1*direction2;
+        oneTime = false;
+    }
+    
+    public void changeLane2()
+    {
+        setRotation(direction2);
+        direction1 = direction2;
+        oneTime = false;
     }
     
     

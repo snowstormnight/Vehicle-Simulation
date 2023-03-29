@@ -61,7 +61,7 @@ public class Bullet extends VerticalObjects
             ship = (ArrayList<Ship>)(getObjectsInRange(130,Ship.class));
             for(int i = 0; i < ship.size(); i++)
             {
-                //put in damage after
+                ship.get(i).decreaseHP();
             }
             vo = (ArrayList<VerticalObjects>)(getObjectsInRange(130,VerticalObjects.class));
             for(int i = 0; i < vo.size(); i++)
@@ -77,7 +77,7 @@ public class Bullet extends VerticalObjects
             ship = (ArrayList<Ship>)(getObjectsInRange(130,Ship.class));
             for(int i = 0; i < ship.size(); i++)
             {
-                //put in damage after
+                ship.get(i).decreaseHP();
             }
             destroy();
             speed = 0;

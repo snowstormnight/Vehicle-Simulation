@@ -94,7 +94,7 @@ public class VehicleWorld extends World
             {
                 xPosition = 0;
             }
-            if (!laneSpawners[lane].isTouchingVehicle ()){//isTouchingVehicle()
+            if (!laneSpawners[lane].isTouchingVehicle ()){
                 int vehicleType = Greenfoot.getRandomNumber(4);
                 //vehicleType = 0;
                 if (vehicleType == 0){
@@ -109,7 +109,8 @@ public class VehicleWorld extends World
                 }
             }
         }
-
+        
+        
         // Chance to spawn a supply
         if (Greenfoot.getRandomNumber (60) == 0){
             int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
@@ -131,6 +132,7 @@ public class VehicleWorld extends World
                 addObject (new SupplyBoat (-1), xSpawnLocation, 550);
             }
         }
+        
         
         //Chance to respawn a bullet
         if (Greenfoot.getRandomNumber (60) == 0){
@@ -154,6 +156,7 @@ public class VehicleWorld extends World
             }
         }
         
+        
         if (!raining && Greenfoot.getRandomNumber(300) == 0){
             addObject (new Rain(150), 550, 309);
             raining = true;
@@ -162,7 +165,10 @@ public class VehicleWorld extends World
             raining = false;
         }
         
-        if(Greenfoot.getRandomNumber (180) == 0)
+        
+        
+       
+       if(Greenfoot.getRandomNumber (180) == 0)
         {
             int xPoistion = Greenfoot.getRandomNumber (900) + 100;
             int yPosition = Greenfoot.getRandomNumber (300) + 100;
