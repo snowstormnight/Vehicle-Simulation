@@ -7,8 +7,7 @@ import java.util.ArrayList;
  */
 public abstract class Ship extends SuperSmoothMover
 {
-    protected double maxSpeed;
-    protected double speed;
+    protected double maxSpeed, speed;
     protected int direction; // 1 = right, -1 = left
     protected boolean moving, exploded;
     protected int yOffset;
@@ -55,11 +54,10 @@ public abstract class Ship extends SuperSmoothMover
     
     
     
-    
+    //This method is used to check if a supply boat is hit with ship class, if yes, set the image to sink
     public void hitted()
     {
         ArrayList<SupplyBoat> sb = (ArrayList<SupplyBoat>)(getIntersectingObjects(SupplyBoat.class));
-        
         if(sb!=null)
         {
             for(int i = 0; i < sb.size(); i++)
@@ -73,18 +71,16 @@ public abstract class Ship extends SuperSmoothMover
         
     }
     
-    public void addedToWorld (World w){
-        setLocation (origin.getX() - (direction * 100), origin.getY() - yOffset);
-    }
+    
 
-    /**
+    /*
      * A method used by all Vehicles to check if they are at the edge.
      * 
      * Note that this World is set to unbounded (The World's super class is (int, int, int, FALSE) which means
      * that objects should not be stopped from leaving the World. However, this introduces a challenge as there
      * is the potential for objects to disappear off-screen but still be fully acting and thus wasting resources
      * and affecting the simulation even though they are not visible.
-     */
+     
     protected boolean checkEdge() {
         if (direction == 1)
         { // if moving right, check 200 pixels to the right (above max X)
@@ -99,7 +95,7 @@ public abstract class Ship extends SuperSmoothMover
             }
         }
         return false;
-    }
+    }*/
 
     /**
      * Method that deals with movement. Speed can be set by individual subclasses in their constructors

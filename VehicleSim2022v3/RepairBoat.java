@@ -165,6 +165,11 @@ public class RepairBoat extends Ship
         return false;
     }
     
+    public void changeLaneTop()
+    {
+        
+    }
+    
     
     
     public void repair()
@@ -187,13 +192,10 @@ public class RepairBoat extends Ship
     
     public void drive() 
     {
-        // Ahead is a generic vehicle - we don't know what type BUT
-        // since every Vehicle "promises" to have a getSpeed() method,
-        // we can call that on any vehicle to find out it's speed
+        //changed to make sure the speed will always be 2 when the lane change
         Ship ahead = (Ship) getOneObjectAtOffset (direction * (int)(speed + getImage().getWidth()/2 + 4), 0, Ship.class);
         if (ahead == null)
         {
-            
             speed = maxSpeed;
         } else if(ahead != null && direction1 == 0){
             speed = ahead.getSpeed();

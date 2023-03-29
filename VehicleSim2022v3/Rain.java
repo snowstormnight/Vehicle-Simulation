@@ -25,10 +25,7 @@ public class Rain extends Effect
         for (Cruiser c1 : c){
             c1.rainSlow();
         }
-        ArrayList<Destroyer> d =  (ArrayList<Destroyer>) w.getObjects(Destroyer.class);
-        for (Destroyer d1 : d){
-            d1.rainSlow();
-        }
+        
         rainSound.play();
         
     }

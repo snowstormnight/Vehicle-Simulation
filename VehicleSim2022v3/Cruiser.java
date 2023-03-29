@@ -14,14 +14,15 @@ public class Cruiser extends Ship
         maxSpeed = 2;
         speed = maxSpeed;
         save = maxSpeed;
+        hp = 6;
     }
     
     
     public void act()
     {
         drive();
-        damage();
         hitted();
+        damage();
     }
     
     public boolean checkHitPedestrian ()

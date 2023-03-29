@@ -14,14 +14,15 @@ public class BattleShip extends Ship
         maxSpeed = 1.5;
         speed = maxSpeed;
         save = maxSpeed;
+        hp = 8;
     }
     
     
     public void act()
     {
         drive();
-        damage();
         hitted();
+        damage();
     }
     
     public boolean checkHitPedestrian ()

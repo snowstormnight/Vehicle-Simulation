@@ -9,15 +9,14 @@ import java.util.ArrayList;
  */
 public class Lightning extends Effect
 {
-    private int duration;
-    private int count;
+    private int duration, count;
     private SimpleTimer animationTimer;
     private GreenfootImage[] animation;
     private GreenfootSound thunderSound;
+    
     public Lightning(int duration)
     {
         this.duration = duration;
-        //image = new GreenfootImage("lightning.png");
         animationTimer = new SimpleTimer();
         animationTimer.mark();
         animation = new GreenfootImage[20];
@@ -25,14 +24,13 @@ public class Lightning extends Effect
         {
             animation[i] = new GreenfootImage("Explosion/" + (i + 1) + ".png");
         }
-        thunderSound = new GreenfootSound("Rain.mp3");
     }
     
     public void act()
     {
         duration--;
-        ArrayList<VerticalObjects> vo = (ArrayList<VerticalObjects>)(getObjectsInRange(150,VerticalObjects.class));
         
+        ArrayList<VerticalObjects> vo = (ArrayList<VerticalObjects>)(getObjectsInRange(150,VerticalObjects.class));
         if(duration < 30)
         {
             for(int i = 0; i < vo.size(); i++)
@@ -40,17 +38,12 @@ public class Lightning extends Effect
                 getWorld().removeObject(vo.get(i));
             }
             explode();
-            
         }
         
         
     }
     
-    public void addedToWorld()
-    {
-        
-    }
-    
+    //This method can play the explode animation and destroy verticalobejcts and damage ships
     public void explode()
     {
         if(animationTimer.millisElapsed() < 25)
