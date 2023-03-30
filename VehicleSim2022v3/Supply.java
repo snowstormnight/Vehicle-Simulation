@@ -8,9 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Supply extends VerticalObjects
 {
+    private int heal;
     public Supply(int direction)
     {
         super(direction);
+        heal = 2;
     }
     
     public void act()
@@ -20,4 +22,8 @@ public class Supply extends VerticalObjects
     }
     
     //need to heal the aircraft carrier after
+    public void heal()
+    {
+        
+    }
 }

@@ -10,10 +10,9 @@ import java.util.*;
 public class Bullet extends VerticalObjects
 {
     private GreenfootImage[] animation;
-    private SimpleTimer st;
-    private int count,c;
+    private int count, c;
     private ArrayList<Ship> ship;
-    private ArrayList<VerticalObjects> vo;
+    private ArrayList<VerticalObjects> verticalObject;
     
     public Bullet(int direction)
     {
@@ -28,13 +27,13 @@ public class Bullet extends VerticalObjects
         }
         animation = new GreenfootImage[20];
         ship = new ArrayList<Ship>();
-        vo = new ArrayList<VerticalObjects>();
+        verticalObject = new ArrayList<VerticalObjects>();
         for(int i = 0; i < 20; i++)
         {
             animation[i] = new GreenfootImage("Explosion/" + (i+1) + ".png");
         }
-        st = new SimpleTimer();
-        st.mark();
+        timer = new SimpleTimer();
+        timer.mark();
         count = 0;
     }
     
@@ -42,12 +41,12 @@ public class Bullet extends VerticalObjects
     
     public void act()
     {
-        check();
+        checkLightning();
         setLocation (getX(), getY() + (int)(speed*direction));
         explosion();
         if(getWorld() != null)
         {
-            hit();
+            hitShip();
         }
         
         
@@ -63,10 +62,10 @@ public class Bullet extends VerticalObjects
             {
                 ship.get(i).decreaseHP();
             }
-            vo = (ArrayList<VerticalObjects>)(getObjectsInRange(130,VerticalObjects.class));
-            for(int i = 0; i < vo.size(); i++)
+            verticalObject = (ArrayList<VerticalObjects>)(getObjectsInRange(130,VerticalObjects.class));
+            for(int i = 0; i < verticalObject.size(); i++)
             {
-                getWorld().removeObject(vo.get(i));
+                getWorld().removeObject(verticalObject.get(i));
             }
             destroy();
             speed = 0;
@@ -90,18 +89,18 @@ public class Bullet extends VerticalObjects
     {
         if(direction == 1 && getY() == 500 && c < 1)
         {
-            st.mark();
+            timer.mark();
             c++;
         }
     }
     
     public void destroy()
     {
-        if(st.millisElapsed() < 50)
+        if(timer.millisElapsed() < 50)
         {
             return;
         }
-        else if(st.millisElapsed() >= 50)
+        else if(timer.millisElapsed() >= 50)
         {
             setImage(animation[count]);
             count++;
@@ -110,7 +109,7 @@ public class Bullet extends VerticalObjects
                 count = 0;
                 getWorld().removeObject(this);
             }
-            st.mark();
+            timer.mark();
         }
         
     }

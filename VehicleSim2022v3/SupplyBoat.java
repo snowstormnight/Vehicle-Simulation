@@ -42,7 +42,7 @@ public class SupplyBoat extends VerticalObjects
     
     public void act()
     {
-        check();
+        checkLightning();
         setLocation (getX(), getY() + (int)(speed*direction));
     }
     

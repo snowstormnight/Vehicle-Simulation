@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Missile extends VerticalObjects
 {
     private int direction1;
-    private SimpleTimer st;
     public Missile(int direction)
     {
         super(direction);
@@ -19,14 +18,21 @@ public class Missile extends VerticalObjects
         {
             setRotation(direction1+180);
         }
-        st = new SimpleTimer();
-        st.mark();
+        timer = new SimpleTimer();
+        timer.mark();
     }
     
     public void act()
     {
-        check();
-        if(st.millisElapsed() > 1000)
+        checkLightning();
+        changeDirection();
+        move(2);
+        hitShip();
+    }
+    
+    public void changeDirection()
+    {
+        if(timer.millisElapsed() > 1000)
         {
             direction1 = Greenfoot.getRandomNumber(100)+40;
             setRotation(direction1);
@@ -34,9 +40,9 @@ public class Missile extends VerticalObjects
             {
                 setRotation(direction1+180);
             }
-            st.mark();
+            timer.mark();
         }
-        move(2);
-        hit();
     }
+    
+    
 }

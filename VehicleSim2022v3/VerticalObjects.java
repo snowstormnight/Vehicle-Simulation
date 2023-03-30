@@ -8,7 +8,8 @@ public abstract class VerticalObjects extends SuperSmoothMover
 {
     protected double speed;
     protected double maxSpeed;
-    protected int direction,count; // direction is always -1 or 1, for moving down or up, respectively
+    protected int direction; // direction is always -1 or 1, for moving down or up, respectively, have ,count before
+    protected SimpleTimer timer;
     
     public VerticalObjects(int direction) {
         // choose a random speed
@@ -17,7 +18,7 @@ public abstract class VerticalObjects extends SuperSmoothMover
         
         this.direction = direction;
         
-        count = 0;
+        //count = 0;
     }
 
     /**
@@ -31,7 +32,7 @@ public abstract class VerticalObjects extends SuperSmoothMover
     }
     
     
-    public void check()
+    public void checkLightning()
     {
         if(isTouching(Lightning.class))
         {
@@ -51,7 +52,7 @@ public abstract class VerticalObjects extends SuperSmoothMover
         
     }
     
-    public void hit()
+    public void hitShip()
     {
         ArrayList<Ship> s = (ArrayList<Ship>)(getIntersectingObjects(Ship.class));
         if(s.size() > 0)
