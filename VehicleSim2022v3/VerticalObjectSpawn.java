@@ -33,35 +33,35 @@ public class VerticalObjectSpawn extends Actor
         {
             if(verticalObjects == 0)
             {
-                    boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                    if (spawnAtTop){
-                        w.addObject (new Supply (1), x, y);
-                        System.out.println("yes");
-                    } else {
-                        w.addObject (new Supply (-1), x, y);
-                    }
+                boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
+                if (spawnAtTop){
+                    w.addObject (new Supply (1), x, y);
+                    System.out.println("yes");
+                } else {
+                    w.addObject (new Supply (-1), x, y);
+                }
                 
             }
             else if(verticalObjects == 1)
             {
-                
-                    boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                    if (spawnAtTop){
-                        w.addObject (new SupplyBoat (1), x, y);
-                    } else {
-                        w.addObject (new SupplyBoat (-1), x, y);
-                    }
+            
+                boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
+                if (spawnAtTop){
+                    w.addObject (new SupplyBoat (1), x, y);
+                } else {
+                    w.addObject (new SupplyBoat (-1), x, y);
+                }
                 
             }
             else if(verticalObjects == 2)
             {
                 
-                    boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                    if (spawnAtTop){
-                        w.addObject(new Bullet(1), x, y);
-                    } else {
-                        w.addObject(new Bullet(-1), x, y);
-                    }
+                boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
+                if (spawnAtTop){
+                    w.addObject(new Bullet(1), x, y);
+                } else {
+                    w.addObject(new Bullet(-1), x, y);
+                }
                 
             }
             else if(verticalObjects == 3)

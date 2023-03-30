@@ -67,7 +67,6 @@ public class VehicleWorld extends World
         lanePositionsY = prepareLanes (this, background, laneSpawners, 97, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
 
         
-        //addObject(new VerticalObjectSpawn(300, 400), 300, 400);
         
     }
 
