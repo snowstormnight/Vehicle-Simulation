@@ -107,7 +107,11 @@ public class VehicleWorld extends World
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){//isTouchingVehicle()
                 int vehicleType = Greenfoot.getRandomNumber(4);
+<<<<<<< Updated upstream
                 //vehicleType = 0;
+=======
+                vehicleType = 7;
+>>>>>>> Stashed changes
                 if (vehicleType == 0){
                     addObject(new AircraftCarrier(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 1){
