@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=boolean\ checkHitPedestrian()
-numComments=4
+comment4.params=w
+comment4.target=void\ addedToWorld(greenfoot.World)
+numComments=5

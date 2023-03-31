@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * Write a description of class FiredBullet here.
@@ -8,12 +9,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FiredBullet extends SuperSmoothMover
 {
-    /**
-     * Act - do whatever the FiredBullet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int random, goX, goY;
+    private World w;
+    private ArrayList<VerticalObjectSpawn> wos;
+    public FiredBullet()
+    {
+        random = Greenfoot.getRandomNumber(6);
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        moveToTarget();
+        move(2);
     }
+    
+    public void moveToTarget()
+    {
+        goX = wos.get(random).getX();
+        goY = wos.get(random).getY();
+        turnTowards(goX, goY);
+        setRotation(getRotation());
+    }
+    
+    public void addedToWorld(World w)
+    {
+        this.w = w;
+        wos = (ArrayList<VerticalObjectSpawn>)(w.getObjects(VerticalObjectSpawn.class));
+        
+    }
+    
 }

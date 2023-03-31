@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BattleShip extends Ship
 {
+    private int time;
+    private World w;
     public BattleShip(VehicleSpawner origin, int lane)
     {
         super(origin, lane);
@@ -15,11 +17,17 @@ public class BattleShip extends Ship
         speed = maxSpeed;
         save = maxSpeed;
         hp = 8;
+        time = 60;
     }
     
     
     public void act()
     {
+        if(time % 60 == 0)
+        {
+            w.addObject(new FiredBullet(), getX(), getY());
+        }
+        time--;
         drive();
         hitted();
         damage();
@@ -28,5 +36,11 @@ public class BattleShip extends Ship
     public boolean checkHitPedestrian ()
     {
         return false;
+    }
+    
+    
+    public void addedToWorld(World w)
+    {
+        this.w = w;
     }
 }

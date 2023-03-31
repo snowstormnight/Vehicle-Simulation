@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class VerticalObjectSpawn here.
@@ -9,75 +10,145 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class VerticalObjectSpawn extends Actor
 {
     public static final Color BLACK = new Color (0, 0, 0);
-    private GreenfootImage image;
-    private int x, y, verticalObjects, count;
+    private GreenfootImage[] animation;
+    private GreenfootImage image, nothing;
+    private SimpleTimer timer;
+    private int x, y, count, hp, speed, random, respawnTime, count1, dead;
     private World w;
+    private int topOrNot;
+    private ArrayList<FiredBullet> fb;
     
-    public VerticalObjectSpawn(int x, int y)
+    
+    public VerticalObjectSpawn(int x, int y, int topOrNot)
     {
-        image = new GreenfootImage(50, 35);
+        image = new GreenfootImage(35, 20);
         image.setColor(BLACK);
         image.fill();
         setImage(image);
         this.x = x;
         this.y = y;
-        count = 60;
+        this.topOrNot = topOrNot;
+        count = 120;
+        hp = 1;
+        nothing = new GreenfootImage("nothing.png");
+        random = Greenfoot.getRandomNumber(4);
+        if(random == 0)
+        {
+            setRotation(0);
+        }
+        else
+        {
+            setRotation(180);
+        }
+        animation = new GreenfootImage[20];
+        for(int i = 0; i < 20; i++)
+        {
+            animation[i] = new GreenfootImage("Explosion/" + (i+1) + ".png");
+        }
+        respawnTime = 420;
+        timer = new SimpleTimer();
+        timer.mark();
+        count1 = 0;
+        count = 0;
+        dead = 0;
     }
     
     public void act()
     {
-        verticalObjects = Greenfoot.getRandomNumber(4);
-        System.out.println(count);
-        
-        if(count%60 == 0)
+        moveAround();
+        if(respawnTime == 0)
         {
-            if(verticalObjects == 0)
+            setImage(image);
+            hp = 20;
+            respawnTime = 420;
+            dead = 0;
+        }
+        if(count%120 == 0 && hp > 0)
+        {
+            addSpawner(topOrNot);
+        }
+        count--;
+        fb = (ArrayList<FiredBullet>)(getIntersectingObjects(FiredBullet.class));
+        for(FiredBullet fb1: fb)
+        {
+            getWorld().removeObject(fb1);
+            hp--;
+        }
+        if(hp <= 0)
+        {
+            respawnTime--;
+            if(dead < 60)
             {
-                boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                if (spawnAtTop){
-                    w.addObject (new Supply (1), x, y);
-                    System.out.println("yes");
-                } else {
-                    w.addObject (new Supply (-1), x, y);
-                }
-                
+                destroy();
             }
-            else if(verticalObjects == 1)
+            dead++;
+        }
+    }
+    
+    
+    public void addSpawner(int direction)
+    {
+        int verticalObjects = Greenfoot.getRandomNumber(4);
+        if(verticalObjects == 0)
+        {
+            w.addObject (new Supply (direction), getX(), getY());
+        }
+        else if(verticalObjects == 1)
+        {
+            w.addObject (new SupplyBoat (direction), getX(), getY());     
+        }
+        else if(verticalObjects == 2)
+        {
+            w.addObject(new Bullet(direction), getX(), getY());
+        }else if(verticalObjects == 3)
+        {
+            w.addObject(new Missile(direction), x, y);
+        }
+    }
+    
+    public void moveAround()
+    {
+        speed = 2;
+        if(Greenfoot.getRandomNumber(240) == 0)
+        {
+            random = Greenfoot.getRandomNumber(4);
+            if(random == 0)
             {
-            
-                boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                if (spawnAtTop){
-                    w.addObject (new SupplyBoat (1), x, y);
-                } else {
-                    w.addObject (new SupplyBoat (-1), x, y);
-                }
-                
+                setRotation(0);
             }
-            else if(verticalObjects == 2)
+            else
             {
-                
-                boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                if (spawnAtTop){
-                    w.addObject(new Bullet(1), x, y);
-                } else {
-                    w.addObject(new Bullet(-1), x, y);
-                }
-                
-            }
-            else if(verticalObjects == 3)
-            {
-                
-                    boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-                    if (spawnAtTop){
-                        w.addObject(new Missile(1), x, y);
-                    } else {
-                        w.addObject(new Missile(-1), x, y);
-                    }
-                
+                setRotation(180);
             }
         }
-        
-        count--;
+        if(getX() == 1000)
+        {
+            setRotation(180);
+        }
+        if(getX() == 100)
+        {
+            setRotation(0);
+        }
+        move(speed);
+    }
+    
+    public void destroy()
+    {
+        if(timer.millisElapsed() < 50)
+        {
+            return;
+        }
+        else if(timer.millisElapsed() >= 50)
+        {
+            setImage(animation[count1]);
+            count1++;
+            if(count1 == 20)
+            {
+                count1 = 0;
+                setImage(nothing);
+            }
+            timer.mark();
+        }
         
     }
     

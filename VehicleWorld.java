@@ -28,6 +28,7 @@ public class VehicleWorld extends World
     private int[] lanePositionsY;
     private VehicleSpawner[] laneSpawners;
     public static boolean raining;
+    private VerticalObjectSpawn[] verticalSpawn;
 
     
     /**
@@ -66,6 +67,15 @@ public class VehicleWorld extends World
         // Prepare lanes method - draws the lanes
         lanePositionsY = prepareLanes (this, background, laneSpawners, 97, laneHeight, laneCount, spaceBetweenLanes, twoWayTraffic, splitAtCenter);
 
+        verticalSpawn = new VerticalObjectSpawn[6];
+        
+        for(int i = 0; i < 3; i++)
+        {
+            verticalSpawn[i] = new VerticalObjectSpawn(220 + i*220, 30+i*20, 1);
+            verticalSpawn[i+3] = new VerticalObjectSpawn(220 + i*220, 550 + i*20, -1);
+            addObject(verticalSpawn[i], 220 + i*220, 30+i*20);
+            addObject(verticalSpawn[i+3], 220 + i*220, 550 + i*20);
+        }
         
         
     }
@@ -82,8 +92,7 @@ public class VehicleWorld extends World
     private void spawn () {
         // Chance to spawn a vehicle
         if (Greenfoot.getRandomNumber (60) == 0){
-            int lane = Greenfoot.getRandomNumber(laneCount);//laneCount
-            //lane = 3;
+            int lane = Greenfoot.getRandomNumber(laneCount);
             int xPosition = 0;
             if(lane < 4)
             {
@@ -95,7 +104,7 @@ public class VehicleWorld extends World
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){
                 int vehicleType = Greenfoot.getRandomNumber(4);
-                //vehicleType = 7;
+                //vehicleType = 3;
                 if (vehicleType == 0){
                     addObject(new AircraftCarrier(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 1){
@@ -110,50 +119,6 @@ public class VehicleWorld extends World
         }
         
         
-        // Chance to spawn a supply
-        if (Greenfoot.getRandomNumber (60) == 0){
-            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
-            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            if (spawnAtTop){
-                addObject (new Supply (1), xSpawnLocation, 50);
-            } else {
-                addObject (new Supply (-1), xSpawnLocation, 550);
-            }
-        }
-        
-        //Chance to spawn a supply boat
-        if (Greenfoot.getRandomNumber (60) == 0){
-            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
-            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            if (spawnAtTop){
-                addObject (new SupplyBoat (1), xSpawnLocation, 50);
-            } else {
-                addObject (new SupplyBoat (-1), xSpawnLocation, 550);
-            }
-        }
-        
-        
-        //Chance to respawn a bullet
-        if (Greenfoot.getRandomNumber (60) == 0){
-            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
-            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            if (spawnAtTop){
-                addObject (new Bullet (1), xSpawnLocation, 50);
-            } else {
-                addObject (new Bullet (-1), xSpawnLocation, 550);
-            }
-        }
-        
-        //Chance to respawn a missile
-        if (Greenfoot.getRandomNumber (60) == 0){
-            int xSpawnLocation = Greenfoot.getRandomNumber (600) + 100; // random between 99 and 699, so not near edges
-            boolean spawnAtTop = Greenfoot.getRandomNumber(2) == 0 ? true : false;
-            if (spawnAtTop){
-                addObject (new Missile (1), xSpawnLocation, 50);
-            } else {
-                addObject (new Missile (-1), xSpawnLocation, 550);
-            }
-        }
         
         
         
@@ -174,6 +139,7 @@ public class VehicleWorld extends World
             int yPosition = Greenfoot.getRandomNumber (300) + 100;
             addObject(new Lightning(60), xPoistion, yPosition);
         }
+        
 
     }
 
