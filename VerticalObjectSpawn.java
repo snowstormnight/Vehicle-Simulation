@@ -10,10 +10,8 @@ import java.util.*;
 public class VerticalObjectSpawn extends Actor
 {
     public static final Color BLACK = new Color (0, 0, 0);
-    private GreenfootImage[] animation;
     private GreenfootImage image, nothing;
-    private SimpleTimer timer;
-    private int x, y, count, hp, speed, random, respawnTime, count1, dead;
+    private int x, y, count, hp, speed,  random, respawnTime, count1;
     private World w;
     private int topOrNot;
     private ArrayList<FiredBullet> fb;
@@ -40,28 +38,23 @@ public class VerticalObjectSpawn extends Actor
         {
             setRotation(180);
         }
-        animation = new GreenfootImage[20];
-        for(int i = 0; i < 20; i++)
-        {
-            animation[i] = new GreenfootImage("Explosion/" + (i+1) + ".png");
-        }
+        
         respawnTime = 420;
-        timer = new SimpleTimer();
-        timer.mark();
         count1 = 0;
         count = 0;
-        dead = 0;
+        speed = 2;
     }
     
     public void act()
     {
         moveAround();
+        
         if(respawnTime == 0)
         {
             setImage(image);
+            speed = 2;
             hp = 20;
             respawnTime = 420;
-            dead = 0;
         }
         if(count%120 == 0 && hp > 0)
         {
@@ -76,13 +69,16 @@ public class VerticalObjectSpawn extends Actor
         }
         if(hp <= 0)
         {
+            speed = 0;
             respawnTime--;
-            if(dead < 60)
-            {
-                destroy();
-            }
-            dead++;
+            setImage(nothing);
         }
+        
+    }
+    
+    public int getHP()
+    {
+        return hp;
     }
     
     
@@ -108,7 +104,6 @@ public class VerticalObjectSpawn extends Actor
     
     public void moveAround()
     {
-        speed = 2;
         if(Greenfoot.getRandomNumber(240) == 0)
         {
             random = Greenfoot.getRandomNumber(4);
@@ -132,25 +127,7 @@ public class VerticalObjectSpawn extends Actor
         move(speed);
     }
     
-    public void destroy()
-    {
-        if(timer.millisElapsed() < 50)
-        {
-            return;
-        }
-        else if(timer.millisElapsed() >= 50)
-        {
-            setImage(animation[count1]);
-            count1++;
-            if(count1 == 20)
-            {
-                count1 = 0;
-                setImage(nothing);
-            }
-            timer.mark();
-        }
-        
-    }
+    
     
     public void addedToWorld(World w)
     {

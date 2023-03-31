@@ -22,6 +22,8 @@ public class VehicleWorld extends World
     public static Color GREY_STREET = new Color (88, 88, 88);
     public static Color YELLOW_LINE = new Color (255, 216, 0);
 
+    private GreenfootSound ocean;
+    
     // Instance variables / Objects
     private boolean twoWayTraffic, splitAtCenter;
     private int laneHeight, laneCount, spaceBetweenLanes;
@@ -77,11 +79,22 @@ public class VehicleWorld extends World
             addObject(verticalSpawn[i+3], 220 + i*220, 550 + i*20);
         }
         
+        ocean = new GreenfootSound("ocean.mp3");
         
     }
 
     public void act () {
         spawn();
+    }
+    
+    public void started()
+    {
+        ocean.playLoop();
+    }
+    
+    public void stopped()
+    {
+        ocean.stop();
     }
 
     public boolean getRain()

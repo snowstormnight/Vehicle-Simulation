@@ -94,6 +94,11 @@ public class AircraftCarrier extends Ship
         
     }
     
+    public void increaseHP()
+    {
+        hp++;
+    }
+    
     public boolean checkHitPedestrian () {
         Supply s = (Supply)(getOneIntersectingObject(Supply.class));
         

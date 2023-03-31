@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+
 /**
  * Write a description of class Supply here.
  * 
@@ -24,6 +25,7 @@ public class Supply extends VerticalObjects
     //need to heal the aircraft carrier after
     public void heal()
     {
-        
+        AircraftCarrier ac = (AircraftCarrier)(getOneIntersectingObject(AircraftCarrier.class));
+        ac.hp++;
     }
 }
