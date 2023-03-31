@@ -13,6 +13,7 @@ public class Bullet extends VerticalObjects
     private int count, c;
     private ArrayList<Ship> ship;
     private ArrayList<VerticalObjects> verticalObject;
+    private GreenfootSound explode;
     
     public Bullet(int direction)
     {
@@ -35,6 +36,7 @@ public class Bullet extends VerticalObjects
         timer = new SimpleTimer();
         timer.mark();
         count = 0;
+        explode = new GreenfootSound("explode.mp3");
     }
     
     
@@ -49,8 +51,8 @@ public class Bullet extends VerticalObjects
             hitShip();
         }
         
-        
     }
+    
     
     public void explosion()
     {
@@ -67,8 +69,10 @@ public class Bullet extends VerticalObjects
             {
                 getWorld().removeObject(verticalObject.get(i));
             }
+            explode.play();
             destroy();
             speed = 0;
+            
         }
         if(direction == -1 && getY() == 150)
         {
@@ -78,6 +82,7 @@ public class Bullet extends VerticalObjects
             {
                 ship.get(i).decreaseHP();
             }
+            explode.play();
             destroy();
             speed = 0;
         }

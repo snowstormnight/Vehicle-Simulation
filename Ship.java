@@ -17,6 +17,7 @@ public abstract class Ship extends SuperSmoothMover
     protected int lane, hp, count;
     private GreenfootImage[] animation;
     private SimpleTimer st;
+    private GreenfootSound explode;
     
 
     public Ship (VehicleSpawner origin, int lane) {
@@ -40,6 +41,7 @@ public abstract class Ship extends SuperSmoothMover
         st.mark();
         count = 0;
         exploded = false;
+        explode = new GreenfootSound("explode.mp3");
     }
     
     public void rainSlow()
@@ -52,6 +54,14 @@ public abstract class Ship extends SuperSmoothMover
         maxSpeed = save;
     }
     
+    public void explodeMusic()
+    {
+        if(hp == 0)
+        {
+            explode.play();
+        }
+        
+    }
 
     //This method is used to check if a supply boat is hit with ship class, if yes, set the image to sink
     public void hitted()

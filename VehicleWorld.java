@@ -117,7 +117,7 @@ public class VehicleWorld extends World
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){
                 int vehicleType = Greenfoot.getRandomNumber(4);
-                //vehicleType = 3;
+                //vehicleType = 0;
                 if (vehicleType == 0){
                     addObject(new AircraftCarrier(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 1){
@@ -136,11 +136,11 @@ public class VehicleWorld extends World
         
         
         if (!raining && Greenfoot.getRandomNumber(300) == 0){
-            addObject (new Rain(150), 550, 309);
-            raining = true;
+            //addObject (new Rain(150), 550, 309);
+            //raining = true;
         }
         if (raining && getObjects(Rain.class).size() == 0){
-            raining = false;
+            //raining = false;
         }
         
         

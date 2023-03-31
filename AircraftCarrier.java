@@ -48,6 +48,7 @@ public class AircraftCarrier extends Ship
         }
         if(hp <= 0)
         {
+            explodeMusic();
             damage();
         }
         
