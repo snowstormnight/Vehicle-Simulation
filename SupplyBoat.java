@@ -10,6 +10,7 @@ public class SupplyBoat extends VerticalObjects
 {
     private boolean sink;
     private GreenfootImage sank;
+
     public SupplyBoat(int direction) {
         super(direction);
         

@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=boolean\ checkHitPedestrian()
 comment4.params=w
 comment4.target=void\ addedToWorld(greenfoot.World)
-numComments=5
+comment5.params=
+comment5.target=void\ stopPlay()
+numComments=6

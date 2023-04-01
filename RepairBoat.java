@@ -14,6 +14,8 @@ public class RepairBoat extends Ship
     private CheckLane down, up;
     private boolean add, inWorld, oneTime;
     private int location, y, time, direction1, coolTime, direction2;
+    private GreenfootSound speedUp;
+    private GreenfootSound healUp;
     public RepairBoat(VehicleSpawner origin, int lane)
     {
         super(origin, lane);
@@ -36,6 +38,8 @@ public class RepairBoat extends Ship
         coolTime = 60;
         direction1 = 0;
         direction2 = 12;
+        speedUp = new GreenfootSound("boat speedup.mp3");
+        healUp = new GreenfootSound("heal.mp3");
     }
     
     public void addedToWorld(World w)
@@ -46,7 +50,13 @@ public class RepairBoat extends Ship
         up = new CheckLane(500, 40, maxSpeed, direction);
         w.addObject(up, location + (150*direction), y - 51);
         w.addObject(down, location + (150*direction), y + 51);
-        hp = 6;
+        hp = 4;
+    }
+    
+    public void stopPlay()
+    {
+        speedUp.stop();
+        healUp.stop();
     }
     
     
@@ -149,6 +159,7 @@ public class RepairBoat extends Ship
         setRotation(-1*direction2);
         direction1 = -1*direction2;
         oneTime = false;
+        speedUp.play();
     }
     
     public void changeLane2()
@@ -156,6 +167,7 @@ public class RepairBoat extends Ship
         setRotation(direction2);
         direction1 = direction2;
         oneTime = false;
+        speedUp.play();
     }
     
     
@@ -166,6 +178,7 @@ public class RepairBoat extends Ship
         
         if(sb.size() > 0)
         {
+            healUp.play();
             for(int i = 0; i < sb.size(); i++)
             {
                 if(sb.get(i) != null && sb.get(i).getSink() == true)

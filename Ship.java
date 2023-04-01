@@ -17,7 +17,8 @@ public abstract class Ship extends SuperSmoothMover
     protected int lane, hp, count;
     private GreenfootImage[] animation;
     private SimpleTimer st;
-    private GreenfootSound explode;
+    protected GreenfootSound explode;
+    protected boolean oneTime;
     
 
     public Ship (VehicleSpawner origin, int lane) {
@@ -42,6 +43,7 @@ public abstract class Ship extends SuperSmoothMover
         count = 0;
         exploded = false;
         explode = new GreenfootSound("explode.mp3");
+        oneTime = false;
     }
     
     public void rainSlow()
@@ -53,6 +55,8 @@ public abstract class Ship extends SuperSmoothMover
     {
         maxSpeed = save;
     }
+    
+    public abstract void stopPlay();
     
     public void explodeMusic()
     {
@@ -107,14 +111,23 @@ public abstract class Ship extends SuperSmoothMover
         hp--;
     }
     
+    public void stopExplode()
+    {
+        explode.stop();
+    }
+    
     public void damage()
     {
-        
         if(hp <= 0)
         {
             maxSpeed = 0;
             speed = 0;
             exploded = true;
+            oneTime = true;
+            if(oneTime)
+            {
+                explode.play();
+            }
             
             if(st.millisElapsed() < 50)
             {
@@ -133,6 +146,7 @@ public abstract class Ship extends SuperSmoothMover
                     }
                     count = 0;
                     getWorld().removeObject(this);
+                    
                 }
                 st.mark();
             }

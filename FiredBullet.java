@@ -19,6 +19,7 @@ public class FiredBullet extends SuperSmoothMover
     
     public void act()
     {
+        
         moveToTarget();
         move(2);
     }

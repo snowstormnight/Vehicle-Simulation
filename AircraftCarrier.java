@@ -13,6 +13,7 @@ public class AircraftCarrier extends Ship
     private GreenfootImage[] animation;
     private int count;
     private GreenfootImage boat;
+    private GreenfootSound elevator;
     public AircraftCarrier(VehicleSpawner origin, int lane)
     {
         super(origin, lane);
@@ -29,7 +30,8 @@ public class AircraftCarrier extends Ship
         {
             animation[i] = new GreenfootImage("Take In Animation/" + (i+1) + ".png");
         }
-        hp = 8;
+        hp = 6;
+        elevator = new GreenfootSound("elevator.mp3");
     }
     
     
@@ -74,8 +76,17 @@ public class AircraftCarrier extends Ship
         }
     }
     
+    public void stopPlay()
+    {
+        elevator.stop();
+    }
+    
     public void takeIn()
     {
+        if(speed == 0)
+        {
+            elevator.play();
+        }
         
         if(speed == 0 && st1.millisElapsed() < 100)
         {
@@ -83,6 +94,7 @@ public class AircraftCarrier extends Ship
         }
         else if(speed == 0 && st1.millisElapsed() > 100)
         {
+            
             setImage(animation[count]);
             st1.mark();
             count++;

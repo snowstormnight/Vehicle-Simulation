@@ -61,7 +61,7 @@ public class Rain extends Effect
         
     }
     
-    public void stopRain()
+    public void stopPlay()
     {
         rainSound.stop();
     }

@@ -14,7 +14,7 @@ public class Cruiser extends Ship
         maxSpeed = 2;
         speed = maxSpeed;
         save = maxSpeed;
-        hp = 6;
+        hp = 5;
     }
     
     
@@ -28,5 +28,10 @@ public class Cruiser extends Ship
     public boolean checkHitPedestrian ()
     {
         return false;
+    }
+    
+    public void stopPlay()
+    {
+        
     }
 }

@@ -24,6 +24,7 @@ public class Lightning extends Effect
         {
             animation[i] = new GreenfootImage("Explosion/" + (i + 1) + ".png");
         }
+        thunderSound = new GreenfootSound("thunder.mp3");
     }
     
     //now can cause damage to both vo and ships
@@ -45,13 +46,24 @@ public class Lightning extends Effect
             }
             explode();
         }
+        if(getWorld() != null)
+        {
+            thunderSound.play();
+        }
         
         
+        
+    }
+    
+    public void stopPlay()
+    {
+        thunderSound.stop();
     }
     
     //This method can play the explode animation and destroy verticalobejcts and damage ships
     public void explode()
     {
+        
         if(animationTimer.millisElapsed() < 25)
         {
             return;
@@ -67,6 +79,11 @@ public class Lightning extends Effect
             }
             animationTimer.mark();
         }
+    }
+    
+    public void addedToWorld(World w)
+    {
+        thunderSound.play();
     }
         
 }

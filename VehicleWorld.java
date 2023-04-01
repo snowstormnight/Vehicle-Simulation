@@ -83,6 +83,7 @@ public class VehicleWorld extends World
             addObject(verticalSpawn[i+3], 220 + i*220, 550 + i*20);
         }
         
+        
         ocean = new GreenfootSound("ocean.mp3");
         
     }
@@ -93,34 +94,38 @@ public class VehicleWorld extends World
     
     public void started()
     {
-        //ocean.playLoop();
+        ocean.playLoop();
     }
     
     public void stopped()
     {
         ocean.stop();
-        ArrayList<Rain> r = (ArrayList<Rain>) getObjects(Rain.class);
-        for(Rain r1 : r)
+        ArrayList<Effect> e = (ArrayList<Effect>) getObjects(Effect.class);
+        for(Effect e1 : e)
         {
-            r1.stopRain();
+            e1.stopPlay();
         }
         ArrayList<Bullet> b = (ArrayList<Bullet>) getObjects(Bullet.class);
         for(Bullet b1 : b)
         {
             b1.explodeStop();
         }
+        ArrayList<Ship> s = (ArrayList<Ship>) getObjects(Ship.class);
+        for(Ship s1 : s)
+        {
+            s1.stopPlay();
+            s1.stopExplode();
+        }
+        
     }
     
 
     public boolean getRain()
     {
-        
-        
         return raining;
     }
     
     private void spawn () {
-        // Chance to spawn a vehicle
         if (Greenfoot.getRandomNumber (60) == 0){
             int lane = Greenfoot.getRandomNumber(laneCount);
             int xPosition = 0;
@@ -134,7 +139,7 @@ public class VehicleWorld extends World
             }
             if (!laneSpawners[lane].isTouchingVehicle ()){
                 int vehicleType = Greenfoot.getRandomNumber(4);
-                //vehicleType = 0;
+                //vehicleType = 2;
                 if (vehicleType == 0){
                     addObject(new AircraftCarrier(laneSpawners[lane], lane), xPosition, lanePositionsY[lane]);
                 } else if (vehicleType == 1){
@@ -151,7 +156,6 @@ public class VehicleWorld extends World
         
         
         
-        
         if (!raining && Greenfoot.getRandomNumber(300) == 0){
             addObject (new Rain(150), 550, 309);
             raining = true;
@@ -162,6 +166,7 @@ public class VehicleWorld extends World
         
         
         
+       
        
        if(Greenfoot.getRandomNumber (180) == 0)
         {

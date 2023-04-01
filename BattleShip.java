@@ -16,14 +16,14 @@ public class BattleShip extends Ship
         maxSpeed = 1.5;
         speed = maxSpeed;
         save = maxSpeed;
-        hp = 8;
-        time = 60;
+        hp = 6;
+        time = 180;
     }
     
     
     public void act()
     {
-        if(time % 60 == 0)
+        if(time % 180 == 0)
         {
             w.addObject(new FiredBullet(), getX(), getY());
         }
@@ -42,5 +42,10 @@ public class BattleShip extends Ship
     public void addedToWorld(World w)
     {
         this.w = w;
+    }
+    
+    public void stopPlay()
+    {
+        
     }
 }

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Effect extends Actor
+public abstract class Effect extends Actor
 {
     protected GreenfootImage image;
     protected double transparency;
@@ -28,4 +28,6 @@ public class Effect extends Actor
             image.setTransparency(newTransparency);
         }
     }
+    
+    public abstract void stopPlay();
 }
