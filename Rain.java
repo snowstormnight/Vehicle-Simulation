@@ -10,7 +10,8 @@ public class Rain extends Effect
 {
     private int duration;
     private ArrayList<Ship> ship;
-    private GreenfootSound rainSound;
+    private static GreenfootSound rainSound;
+    private World w;
     
     public void addedToWorld (World w){
         ArrayList<AircraftCarrier> a =  (ArrayList<AircraftCarrier>) w.getObjects(AircraftCarrier.class);
@@ -25,8 +26,8 @@ public class Rain extends Effect
         for (Cruiser c1 : c){
             c1.rainSlow();
         }
+        this.w = w;
         
-        rainSound.play();
         
     }
     
@@ -36,16 +37,12 @@ public class Rain extends Effect
         
     }
     
-    public void stopped()
-    {
-        rainSound.stop();
-    }
+    
     
     
     
     public void act()
     {
-        World w = getWorld();
         image = drawRain (w.getWidth(), w.getHeight(), 80);
         setImage(image);
         controlEffect(duration, 90, 90);
@@ -57,6 +54,16 @@ public class Rain extends Effect
                 s.getBack();
             }   
         }
+        if(getWorld() != null)
+        {
+            rainSound.play();
+        }
+        
+    }
+    
+    public void stopRain()
+    {
+        rainSound.stop();
     }
     
     /**

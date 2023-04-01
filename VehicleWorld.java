@@ -24,6 +24,8 @@ public class VehicleWorld extends World
 
     private GreenfootSound ocean;
     
+    
+    
     // Instance variables / Objects
     private boolean twoWayTraffic, splitAtCenter;
     private int laneHeight, laneCount, spaceBetweenLanes;
@@ -71,6 +73,8 @@ public class VehicleWorld extends World
 
         verticalSpawn = new VerticalObjectSpawn[6];
         
+        
+        
         for(int i = 0; i < 3; i++)
         {
             verticalSpawn[i] = new VerticalObjectSpawn(220 + i*220, 30+i*20, 1);
@@ -89,16 +93,29 @@ public class VehicleWorld extends World
     
     public void started()
     {
-        ocean.playLoop();
+        //ocean.playLoop();
     }
     
     public void stopped()
     {
         ocean.stop();
+        ArrayList<Rain> r = (ArrayList<Rain>) getObjects(Rain.class);
+        for(Rain r1 : r)
+        {
+            r1.stopRain();
+        }
+        ArrayList<Bullet> b = (ArrayList<Bullet>) getObjects(Bullet.class);
+        for(Bullet b1 : b)
+        {
+            b1.explodeStop();
+        }
     }
+    
 
     public boolean getRain()
     {
+        
+        
         return raining;
     }
     
@@ -136,11 +153,11 @@ public class VehicleWorld extends World
         
         
         if (!raining && Greenfoot.getRandomNumber(300) == 0){
-            //addObject (new Rain(150), 550, 309);
-            //raining = true;
+            addObject (new Rain(150), 550, 309);
+            raining = true;
         }
         if (raining && getObjects(Rain.class).size() == 0){
-            //raining = false;
+            raining = false;
         }
         
         

@@ -52,7 +52,12 @@ public class Bullet extends VerticalObjects
         }
         
     }
+
     
+    public void explodeStop()
+    {
+        explode.stop();
+    }
     
     public void explosion()
     {
