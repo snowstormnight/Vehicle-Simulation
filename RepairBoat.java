@@ -210,4 +210,9 @@ public class RepairBoat extends Ship
         
     }   
     
+    
+    public boolean checkHitPedestrian()
+    {
+        return false;
+    }
 }

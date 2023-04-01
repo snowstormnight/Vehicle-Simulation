@@ -84,6 +84,8 @@ public abstract class Ship extends SuperSmoothMover
         
         
     }
+    
+    public abstract boolean checkHitPedestrian();
         
 
     /**
