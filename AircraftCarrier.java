@@ -32,6 +32,7 @@ public class AircraftCarrier extends Ship
         }
         hp = 6;
         elevator = new GreenfootSound("elevator.mp3");
+        elevator.setVolume(15);
     }
     
     

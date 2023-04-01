@@ -34,7 +34,7 @@ public class Rain extends Effect
     public Rain (int duration){
         this.duration = duration;
         rainSound = new GreenfootSound("Rain1.mp3");
-        
+        rainSound.setVolume(30);
     }
     
     

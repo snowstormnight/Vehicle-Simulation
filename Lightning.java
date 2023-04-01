@@ -25,6 +25,7 @@ public class Lightning extends Effect
             animation[i] = new GreenfootImage("Explosion/" + (i + 1) + ".png");
         }
         thunderSound = new GreenfootSound("thunder.mp3");
+        thunderSound.setVolume(7);
     }
     
     //now can cause damage to both vo and ships

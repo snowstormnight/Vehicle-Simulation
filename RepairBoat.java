@@ -40,6 +40,7 @@ public class RepairBoat extends Ship
         direction2 = 12;
         speedUp = new GreenfootSound("boat speedup.mp3");
         healUp = new GreenfootSound("heal.mp3");
+        healUp.setVolume(8);
     }
     
     public void addedToWorld(World w)

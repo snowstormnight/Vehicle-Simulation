@@ -43,6 +43,7 @@ public abstract class Ship extends SuperSmoothMover
         count = 0;
         exploded = false;
         explode = new GreenfootSound("explode.mp3");
+        explode.setVolume(25);
         oneTime = false;
     }
     

@@ -85,7 +85,7 @@ public class VehicleWorld extends World
         
         
         ocean = new GreenfootSound("ocean.mp3");
-        
+        ocean.setVolume(20);
     }
 
     public void act () {

@@ -37,6 +37,7 @@ public class Bullet extends VerticalObjects
         timer.mark();
         count = 0;
         explode = new GreenfootSound("explode.mp3");
+        explode.setVolume(25);
     }
     
     
