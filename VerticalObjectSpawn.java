@@ -27,7 +27,7 @@ public class VerticalObjectSpawn extends Actor
         this.y = y;
         this.topOrNot = topOrNot;
         count = 120;
-        hp = 1;
+        hp = 10;
         nothing = new GreenfootImage("nothing.png");
         random = Greenfoot.getRandomNumber(4);
         if(random == 0)

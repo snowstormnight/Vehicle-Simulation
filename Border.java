@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Border here.
+ * This is the border class, will remove all the touching actors
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class Border extends Actor
 {
+    //Constructor of border
     public Border(boolean direction)
     {
         if(direction)
@@ -16,6 +17,7 @@ public class Border extends Actor
         }
     }
     
+    //Check if an actor is touching. If touch, remove it
     public void act()
     {
         if(isTouching(SuperSmoothMover.class))

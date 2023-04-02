@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Lightning here.
+ * This is 
  * 
  * @author (your name) 
  * @version (a version number or a date)

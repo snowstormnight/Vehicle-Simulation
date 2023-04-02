@@ -47,17 +47,21 @@ public class AircraftCarrier extends Ship
         {
            takeIn(); 
         }
-        
-        if(speed != 0 && !exploded && hp >0)
-        {
-            setImage(boat);
-        }
+        stableImage();
         if(hp <= 0)
         {
             explodeMusic();
             damage();
         }
         
+    }
+    
+    public void stableImage()
+    {
+        if(speed != 0 && !exploded && hp >0)
+        {
+            setImage(boat);
+        }
     }
     
     

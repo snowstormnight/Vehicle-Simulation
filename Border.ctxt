@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Border
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Border\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ border\ class,\ will\ remove\ all\ the\ touching\ actors\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=direction
 comment1.target=Border(boolean)
 comment2.params=

@@ -1,16 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Effect here.
+ * This is the effect class. This class will form some effects as time goes.
+ * Those effects will affect the ships.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu 
+ * @version final 2023/4/1
  */
 public abstract class Effect extends Actor
 {
     protected GreenfootImage image;
     protected double transparency;
     
+    //This method will control the transparency of the effect and the remain time. When remain time is zero, it will remove the effect.
     public void controlEffect(int duration, int remainTime, int count)
     {
         if(duration <= 0)
