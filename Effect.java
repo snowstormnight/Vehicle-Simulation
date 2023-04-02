@@ -10,10 +10,6 @@ public abstract class Effect extends Actor
 {
     protected GreenfootImage image;
     protected double transparency;
-    public void act()
-    {
-        
-    }
     
     public void controlEffect(int duration, int remainTime, int count)
     {

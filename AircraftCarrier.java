@@ -19,17 +19,20 @@ public class AircraftCarrier extends Ship
         super(origin, lane);
         maxSpeed = 1.5;
         speed = maxSpeed;
+        
         st = new SimpleTimer();
         st1 = new SimpleTimer();
         st.mark();
         st1.mark();
         count = 0;
+        
         boat = new GreenfootImage("Aircraft Carrier.png");
         animation = new GreenfootImage[10];
         for(int i = 0; i < 10; i++)
         {
             animation[i] = new GreenfootImage("Take In Animation/" + (i+1) + ".png");
         }
+        
         hp = 6;
         elevator = new GreenfootSound("elevator.mp3");
         elevator.setVolume(15);
@@ -69,7 +72,6 @@ public class AircraftCarrier extends Ship
         {
             checkHitPedestrian();
         }
-        //super.drive();
         if(st.millisElapsed() > 1000 && !VehicleWorld.raining)
         {
             maxSpeed = 1.5;
@@ -102,7 +104,6 @@ public class AircraftCarrier extends Ship
             if(count == 10)
             {
                 count = 0;
-                
             }
         }
         

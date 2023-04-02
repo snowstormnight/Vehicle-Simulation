@@ -23,6 +23,7 @@ public abstract class Ship extends SuperSmoothMover
 
     public Ship (VehicleSpawner origin, int lane) {
         this.origin = origin;
+        
         moving = true;
         this.lane = lane;
         if (origin.facesRightward()){
@@ -32,6 +33,7 @@ public abstract class Ship extends SuperSmoothMover
             direction = -1;
             getImage().mirrorHorizontally();
         }
+        
         sank = new GreenfootImage("Sink Boat.png");
         animation = new GreenfootImage[20];
         for(int i = 0; i < 20; i++)
@@ -41,6 +43,7 @@ public abstract class Ship extends SuperSmoothMover
         st = new SimpleTimer();
         st.mark();
         count = 0;
+        
         exploded = false;
         explode = new GreenfootSound("explode.mp3");
         explode.setVolume(25);
@@ -65,7 +68,6 @@ public abstract class Ship extends SuperSmoothMover
         {
             explode.play();
         }
-        
     }
 
     //This method is used to check if a supply boat is hit with ship class, if yes, set the image to sink
@@ -84,8 +86,6 @@ public abstract class Ship extends SuperSmoothMover
         
         
     }
-    
-    public abstract boolean checkHitPedestrian();
         
 
     /**
@@ -149,7 +149,6 @@ public abstract class Ship extends SuperSmoothMover
                     }
                     count = 0;
                     getWorld().removeObject(this);
-                    
                 }
                 st.mark();
             }
@@ -163,4 +162,6 @@ public abstract class Ship extends SuperSmoothMover
     public double getSpeed(){
         return speed;
     }
+    
+    public abstract boolean checkHitPedestrian();
 }

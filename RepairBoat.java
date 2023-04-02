@@ -16,6 +16,7 @@ public class RepairBoat extends Ship
     private int location, y, time, direction1, coolTime, direction2;
     private GreenfootSound speedUp;
     private GreenfootSound healUp;
+    
     public RepairBoat(VehicleSpawner origin, int lane)
     {
         super(origin, lane);
@@ -27,17 +28,21 @@ public class RepairBoat extends Ship
         {
             location = 1100;
         }
+        
         maxSpeed = 3;
         speed = maxSpeed;
         save = maxSpeed;
+        
         boat = new GreenfootImage("Boat.png");
         sb = new ArrayList<SupplyBoat>();
         inWorld = true;
         time = 100;
         oneTime = true;
         coolTime = 60;
+        
         direction1 = 0;
         direction2 = 12;
+        
         speedUp = new GreenfootSound("boat speedup.mp3");
         healUp = new GreenfootSound("heal.mp3");
         healUp.setVolume(8);
@@ -63,28 +68,43 @@ public class RepairBoat extends Ship
     
     public void act()
     {
+        
+        checkInWorld();
+        drive();
+        repair();
+        damage();
+        
+    }
+    
+    public void checkInWorld()
+    {
         if(inWorld == true && (getX() > 1100 || getX() < 0))
         {
             inWorld = false;
         }
+    }
+    
+    public void changeLaneWay()
+    {
+        //The codes down below is used to make sure repair ship can change lane accrutely in every lane
         if(inWorld && (lane == 0 || lane == 4))
         {
-                if(lane == 4 && !down.checkSide()  && time > 0 && oneTime && changeLane())
-                {
-                    changeLane2();
-                }
-                if(lane == 0 && !down.checkSide()  && time > 0 && oneTime  && changeLane())
-                {
-                    changeLane1();
-                }
+            if(lane == 4 && !down.checkSide()  && time > 0 && oneTime && changeLane())
+            {
+                changeLane2();
+            }
+            if(lane == 0 && !down.checkSide()  && time > 0 && oneTime  && changeLane())
+            {
+                changeLane1();
+            }
             
         }
         if(inWorld && (lane == 3 || lane == 7))
         {
             if(lane == 3 && !up.checkSide()  && time > 0 && oneTime && changeLane())
-                {
-                    changeLane2();
-                }
+            {
+                changeLane2();
+            }
             if(lane == 7 && !up.checkSide()  && time > 0 && oneTime  && changeLane())
             {
                 changeLane1();
@@ -121,8 +141,10 @@ public class RepairBoat extends Ship
                 changeLane2();
             }
         }
-            
-            
+        
+        
+        //The code below is what happened after the change lane is done. In this case, the direction and speed will set to original. 
+        //Cool down will be set to true;
         if(direction1 == -12 || direction1 == 12)
         {
             time--;
@@ -135,13 +157,10 @@ public class RepairBoat extends Ship
             speed = 3;
             coolTime = 0;
         }
-        drive();
-        repair();
+        
         up.setSpeed(speed);
         down.setSpeed(speed);
         coolTime--;
-        damage();
-        
     }
     
     public boolean changeLane()
@@ -194,6 +213,8 @@ public class RepairBoat extends Ship
     
     public void drive() 
     {
+        changeLaneWay();
+        
         //changed to make sure the speed will always be 2 when the lane change
         Ship ahead = (Ship) getOneObjectAtOffset (direction * (int)(speed + getImage().getWidth()/2 + 4), 0, Ship.class);
         if (ahead == null)

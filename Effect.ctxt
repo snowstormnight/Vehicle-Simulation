@@ -1,10 +1,8 @@
 #BlueJ class context
 comment0.target=Effect
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Effect\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment2.params=duration\ remainTime\ count
-comment2.target=void\ controlEffect(int,\ int,\ int)
-comment3.params=
-comment3.target=void\ stopPlay()
-numComments=4
+comment1.params=duration\ remainTime\ count
+comment1.target=void\ controlEffect(int,\ int,\ int)
+comment2.params=
+comment2.target=void\ stopPlay()
+numComments=3

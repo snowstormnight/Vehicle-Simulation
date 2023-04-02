@@ -18,11 +18,10 @@ public class Supply extends VerticalObjects
     
     public void act()
     {
-        setLocation (getX(), getY() + (int)(speed*direction));
-        
+        move();
     }
     
-    //need to heal the aircraft carrier after
+    
     public void heal()
     {
         AircraftCarrier ac = (AircraftCarrier)(getOneIntersectingObject(AircraftCarrier.class));

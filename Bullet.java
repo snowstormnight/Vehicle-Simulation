@@ -26,9 +26,8 @@ public class Bullet extends VerticalObjects
         {
             setRotation(90);
         }
+        
         animation = new GreenfootImage[20];
-        ship = new ArrayList<Ship>();
-        verticalObject = new ArrayList<VerticalObjects>();
         for(int i = 0; i < 20; i++)
         {
             animation[i] = new GreenfootImage("Explosion/" + (i+1) + ".png");
@@ -36,16 +35,19 @@ public class Bullet extends VerticalObjects
         timer = new SimpleTimer();
         timer.mark();
         count = 0;
+        
+        ship = new ArrayList<Ship>();
+        verticalObject = new ArrayList<VerticalObjects>();
+        
         explode = new GreenfootSound("explode.mp3");
         explode.setVolume(25);
     }
     
     
-    
     public void act()
     {
         checkLightning();
-        setLocation (getX(), getY() + (int)(speed*direction));
+        move();
         explosion();
         if(getWorld() != null)
         {
@@ -64,34 +66,30 @@ public class Bullet extends VerticalObjects
     {
         if(direction == 1 && getY() == 500)
         {
-            setZero();
-            ship = (ArrayList<Ship>)(getObjectsInRange(130,Ship.class));
-            for(int i = 0; i < ship.size(); i++)
-            {
-                ship.get(i).decreaseHP();
-            }
-            verticalObject = (ArrayList<VerticalObjects>)(getObjectsInRange(130,VerticalObjects.class));
-            for(int i = 0; i < verticalObject.size(); i++)
-            {
-                getWorld().removeObject(verticalObject.get(i));
-            }
-            explode.play();
-            destroy();
-            speed = 0;
-            
+            explosionAnimation();
         }
         if(direction == -1 && getY() == 150)
         {
-            setZero();
-            ship = (ArrayList<Ship>)(getObjectsInRange(130,Ship.class));
-            for(int i = 0; i < ship.size(); i++)
-            {
-                ship.get(i).decreaseHP();
-            }
-            explode.play();
-            destroy();
-            speed = 0;
+            explosionAnimation();
         }
+    }
+    
+    public void explosionAnimation()
+    {
+        setZero();
+        ship = (ArrayList<Ship>)(getObjectsInRange(130,Ship.class));
+        for(int i = 0; i < ship.size(); i++)
+        {
+            ship.get(i).decreaseHP();
+        }
+        verticalObject = (ArrayList<VerticalObjects>)(getObjectsInRange(130,VerticalObjects.class));
+        for(int i = 0; i < verticalObject.size(); i++)
+        {
+            getWorld().removeObject(verticalObject.get(i));
+        }
+        explode.play();
+        destroy();
+        speed = 0;
     }
     
     
