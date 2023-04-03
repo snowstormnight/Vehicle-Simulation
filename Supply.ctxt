@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Supply
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Supply\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ Supply\ class.\r\n\ This\ class\ will\ move\ vertically\ upwards\ and\ will\ be\ take\ in\ by\ the\ AircraftCarrier\ after\ it\ is\ in\ touch\ with\ it.\r\n\ When\ it\ is\ being\ take\ in,\ it\ will\ increase\ the\ AircraftCarrier's\ hp\ by\ one.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=direction
 comment1.target=Supply(int)
+comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ Supply\ class\r\n\ \r\n\ @param\ direction\ The\ direction\ the\ object\ travels\ in\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

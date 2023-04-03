@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Missile
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Missile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ missile\ class.\r\n\ This\ class\ will\ change\ its\ direction\ each\ sec\ and\ will\ damage\ the\ ships\ it\ is\ in\ contact\ with\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=direction
 comment1.target=Missile(int)
+comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ Missile\ class\r\n\ \r\n\ @param\ direction\ The\ direction\ the\ object\ travels\ in\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

@@ -5,8 +5,8 @@ import java.util.*;
  * This is the Bullet class
  * Its main method is to destroy other VerticalObjects class and damage the Ship class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class Bullet extends VerticalObjects
 {
@@ -102,7 +102,7 @@ public class Bullet extends VerticalObjects
     }
     
     
-    
+    //This will reset the timer to zero to make sure the animation can run
     public void setZero()
     {
         if(direction == 1 && getY() == 500 && c < 1)
@@ -112,6 +112,7 @@ public class Bullet extends VerticalObjects
         }
     }
     
+    //This method will play the explosion animation and remove itself 
     public void destroy()
     {
         if(timer.millisElapsed() < 50)

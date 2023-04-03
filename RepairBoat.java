@@ -101,7 +101,7 @@ public class RepairBoat extends Ship
         }
     }
     
-    //This is the main method that will decide when the chnage the lane of the ship
+    //This is the main method that will decide when to check the lane and choose the way they change lane
     public void changeLaneWay()
     {
         //The codes down below is used to make sure repair ship can change lane accrutely in every lane

@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=SupplyBoat
-comment0.text=\r\n\ This\ is\ the\ SupplyBoat\ class.\r\n\ The\ mission\ of\ the\ SupplyBoat\ class\ is\ to\ reach\ the\ other\ side.\r\n\ When\ it\ is\ hitted\ by\ the\ Ship\ class,\ it\ will\ be\ sank\ and\ wait\ for\ the\ RepairBoat\ to\ reapir\ it\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ SupplyBoat\ class.\r\n\ The\ mission\ of\ the\ SupplyBoat\ class\ is\ to\ reach\ the\ other\ side.\r\n\ When\ it\ is\ hitted\ by\ the\ Ship\ class,\ it\ will\ be\ sank\ and\ wait\ for\ the\ RepairBoat\ to\ reapir\ it\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=direction
 comment1.target=SupplyBoat(int)
+comment1.text=\r\n\ This\ is\ the\ constructor\ of\ SupplyBoat\r\n\ \r\n\ @param\ direction\ The\ direction\ the\ object\ travels\ in\r\n
 comment2.params=speed
 comment2.target=void\ setSpeed(int)
 comment3.params=sink

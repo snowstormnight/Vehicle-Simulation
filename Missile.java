@@ -1,14 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Missile here.
+ * This is the missile class.
+ * This class will change its direction each sec and will damage the ships it is in contact with
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class Missile extends VerticalObjects
 {
     private int direction1;
+    
+    /**
+     * This is the constructor of the Missile class
+     * 
+     * @param direction The direction the object travels in
+     */
     public Missile(int direction)
     {
         super(direction);
@@ -22,6 +29,7 @@ public class Missile extends VerticalObjects
         timer.mark();
     }
     
+    //This is the act method of the Missile class
     public void act()
     {
         checkLightning();
@@ -30,6 +38,7 @@ public class Missile extends VerticalObjects
         hitShip();
     }
     
+    //This is the main method that will changes the Missile's direction every sec.
     public void changeDirection()
     {
         if(timer.millisElapsed() > 1000)
