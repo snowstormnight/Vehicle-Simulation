@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=Ship
-comment0.text=\r\n\ This\ is\ the\ superclass\ for\ Vehicles.\r\n\ \r\n
+comment0.text=\r\n\ This\ is\ the\ superclass\ forShips\r\n\ \r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n\ \r\n
 comment1.params=origin\ lane
 comment1.target=Ship(VehicleSpawner,\ int)
+comment1.text=This\ is\ the\ constructor\ for\ Ships\r\n\ \r\n\ @param\ origin\ This\ is\ the\ spawner\ the\ ship\ will\ spawn\ on\r\n\ @param\ lane\ This\ will\ let\ the\ Ships\ know\ which\ lane\ they\ are\ on\r\n
 comment10.params=
 comment10.target=void\ damage()
+comment10.text=This\ is\ the\ method\ determines\ whether\ the\ ship\ shoudl\ explode\ or\ not.\ \r\n\ When\ the\ hp\ reaches\ zero,\ it\ will\ play\ the\ explosion\ animtiona\ nd\ sound\ effect\r\n
 comment11.params=
 comment11.target=double\ getSpeed()
 comment11.text=\r\n\ An\ accessor\ that\ can\ be\ used\ to\ get\ this\ Vehicle's\ speed.\ Used,\ for\ example,\ when\ a\ vehicle\ wants\ to\ see\r\n\ if\ a\ faster\ vehicle\ is\ ahead\ in\ the\ lane.\r\n

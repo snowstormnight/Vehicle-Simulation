@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Bullet here.
+ * This is the Bullet class
+ * Its main method is to destroy other VerticalObjects class and damage the Ship class
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -15,6 +16,11 @@ public class Bullet extends VerticalObjects
     private ArrayList<VerticalObjects> verticalObject;
     private GreenfootSound explode;
     
+    /**
+     * This is the constructor of the Bullet class
+     * 
+     * @param direction The direction the object travels in
+     */
     public Bullet(int direction)
     {
         super(direction);
@@ -27,6 +33,7 @@ public class Bullet extends VerticalObjects
             setRotation(90);
         }
         
+        //Below is the code for explsion animation
         animation = new GreenfootImage[20];
         for(int i = 0; i < 20; i++)
         {
@@ -43,7 +50,7 @@ public class Bullet extends VerticalObjects
         explode.setVolume(25);
     }
     
-    
+    //The act method of Bullet class
     public void act()
     {
         checkLightning();
@@ -56,12 +63,13 @@ public class Bullet extends VerticalObjects
         
     }
 
-    
+    //This method will pause the explode sound effect of the Bullet
     public void explodeStop()
     {
         explode.stop();
     }
     
+    //This will make the Bullet explode when it is about to reach the end of the world
     public void explosion()
     {
         if(direction == 1 && getY() == 500)
@@ -74,6 +82,7 @@ public class Bullet extends VerticalObjects
         }
     }
     
+    //This method is will play the explosion animation and decrease the hp of Ships and remove any VerticalObjects in the explosion range
     public void explosionAnimation()
     {
         setZero();

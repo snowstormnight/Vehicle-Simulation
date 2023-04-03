@@ -1,7 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class SupplyBoat here.
+ * This is the SupplyBoat class.
+ * The mission of the SupplyBoat class is to reach the other side.
+ * When it is hitted by the Ship class, it will be sank and wait for the RepairBoat to reapir it
  * 
  * @author (your name) 
  * @version (a version number or a date)

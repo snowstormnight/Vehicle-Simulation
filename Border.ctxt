@@ -3,6 +3,7 @@ comment0.target=Border
 comment0.text=\r\n\ This\ is\ the\ border\ class,\ will\ remove\ all\ the\ touching\ actors\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=direction
 comment1.target=Border(boolean)
+comment1.text=Constructor\ of\ border\r\n\ \r\n\ @param\ direction\ Means\ the\ direction\ this\ border\ should\ face\r\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3

@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Border extends Actor
 {
-    //Constructor of border
+    /**Constructor of border
+     * 
+     * @param direction Means the direction this border should face
+     */
+    
     public Border(boolean direction)
     {
         if(direction)

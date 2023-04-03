@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CheckLane here.
+ * This is the class that helps RepairBoat to decide whether change lane or not.
+ * They are invisible rectangles that can detect whether they are in touch with a boat and tell RepairBoat, and RepairBoat will make decision base on the 
+ * result
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class CheckLane extends SuperSmoothMover
 {
@@ -13,6 +15,15 @@ public class CheckLane extends SuperSmoothMover
     private double speed;
     private GreenfootImage image;
     
+    
+    /**
+     * The constructor of the CheeckLane class
+     * 
+     * @param width This is the width of the rectangle
+     * @param height This is the height of the rectangle
+     * @param speed This is the speed it should move with
+     * @param direction This is the direction it should move
+     */
     public CheckLane(int width, int height, double speed, int direction)
     {
         this.width = width;
@@ -25,22 +36,31 @@ public class CheckLane extends SuperSmoothMover
         setImage(image);
     }
     
+    //This is teh act method
     public void act()
     {
         move(speed*direction);
         
     }
     
+    //This methdo will return the height of the rectangle
     public int get()
     {
         return height;
     }
     
+    
+    //This is the boolean that returns whether it is touching otehr ships
     public boolean checkSide()
     {
         return isTouching(Ship.class);
     }
     
+    /**This is the method that can set the speed of the rectangle to make it move with ship
+     * 
+     * 
+     * @param change This is the speed it will change to
+     */
     public void setSpeed(double change)
     {
         speed = change;

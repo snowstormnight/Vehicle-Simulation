@@ -1,14 +1,17 @@
 #BlueJ class context
 comment0.target=Lightning
-comment0.text=\r\n\ This\ is\ \r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ lightning\ class\r\n\ When\ they\ \r\n\ \r\n\ @author\ George\ Lu\ \r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=duration
 comment1.target=Lightning(int)
+comment1.text=Constructor\ of\ the\ lightning\ class\r\n\ \r\n\ @param\ duration\ This\ is\ the\ time\ this\ efect\ shoudl\ last\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ stopPlay()
+comment3.target=void\ damage()
 comment4.params=
-comment4.target=void\ explode()
-comment5.params=w
-comment5.target=void\ addedToWorld(greenfoot.World)
-numComments=6
+comment4.target=void\ stopPlay()
+comment5.params=
+comment5.target=void\ explode()
+comment6.params=w
+comment6.target=void\ addedToWorld(greenfoot.World)
+numComments=7

@@ -207,7 +207,7 @@ public class VehicleWorld extends World
         
         
         
-        //Use to create the VerticalObjectsSpawn place
+        //Use to create and add the VerticalObjectsSpawn objects
         verticalSpawn = new VerticalObjectSpawn[6];
         for(int i = 0; i < 3; i++)
         {
@@ -217,7 +217,7 @@ public class VehicleWorld extends World
             addObject(verticalSpawn[i+3], 220 + i*220, 550 + i*20);
         }
         
-        
+        //To set up the background sound
         ocean = new GreenfootSound("ocean.mp3");
         ocean.setVolume(20);
     }
@@ -232,7 +232,7 @@ public class VehicleWorld extends World
         ocean.playLoop();
     }
     
-    //This method will be played when the greenfoot stop running. The main purpose is to stop those sound effect.
+    //This method will be played when the greenfoot stop running. The main purpose is to stop those sound effects.
     public void stopped()
     {
         ocean.stop();

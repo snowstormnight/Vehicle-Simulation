@@ -1,14 +1,16 @@
 #BlueJ class context
 comment0.target=AircraftCarrier
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ AircraftCarrier\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ AircraftCarrier\ class\r\n\ It\ will\ pick\ up\ the\ heal\ bag\ and\ take\ them\ in\ with\ sound\ effect\ and\ animation\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=origin\ lane
 comment1.target=AircraftCarrier(VehicleSpawner,\ int)
+comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ AircraftCarrier\ class\r\n\ \r\n\ @param\ origin\ This\ is\ the\ spawner\ it\ will\ spawn\ on\r\n\ @param\ lane\ This\ is\ the\ lane\ it\ will\ moves\ on\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ stableImage()
 comment4.params=
 comment4.target=void\ drive()
+comment4.text=This\ is\ teh\ edited\ drive\ method\ for\ drive().\ \r\n\ This\ time,\ it\ will\ chnage\ its\ speed\ according\ to\ the\ whether\ condition\r\n
 comment5.params=
 comment5.target=void\ stopPlay()
 comment6.params=

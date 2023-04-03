@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class AircraftCarrier here.
+ * This is the AircraftCarrier class
+ * It will pick up the heal bag and take them in with sound effect and animation
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class AircraftCarrier extends Ship
 {
@@ -14,31 +15,41 @@ public class AircraftCarrier extends Ship
     private int count;
     private GreenfootImage boat;
     private GreenfootSound elevator;
+    
+    /**
+     * This is the constructor of the AircraftCarrier class
+     * 
+     * @param origin This is the spawner it will spawn on
+     * @param lane This is the lane it will moves on
+     */
     public AircraftCarrier(VehicleSpawner origin, int lane)
     {
         super(origin, lane);
         maxSpeed = 1.5;
         speed = maxSpeed;
         
+        //The code below is used to set up the take in animation
         st = new SimpleTimer();
         st1 = new SimpleTimer();
         st.mark();
         st1.mark();
         count = 0;
-        
-        boat = new GreenfootImage("Aircraft Carrier.png");
         animation = new GreenfootImage[10];
         for(int i = 0; i < 10; i++)
         {
             animation[i] = new GreenfootImage("Take In Animation/" + (i+1) + ".png");
         }
         
+        
+        boat = new GreenfootImage("Aircraft Carrier.png");
         hp = 6;
+        
+        //The code below is to set the sound effect when the AircraftCarrier takes in a heal bag
         elevator = new GreenfootSound("elevator.mp3");
         elevator.setVolume(15);
     }
     
-    
+    //This is the act method of the AircraftCarrier
     public void act()
     {
         drive();
@@ -56,6 +67,7 @@ public class AircraftCarrier extends Ship
         
     }
     
+    //This method meant to make sure the image of the ship will not change if it is moving and hp is great than zero
     public void stableImage()
     {
         if(speed != 0 && !exploded && hp >0)
@@ -65,7 +77,9 @@ public class AircraftCarrier extends Ship
     }
     
     
-    
+    /**This is teh edited drive method for drive(). 
+     * This time, it will chnage its speed according to the whether condition
+     */
     public void drive()
     {
         if(!checkHitPedestrian())
@@ -83,11 +97,13 @@ public class AircraftCarrier extends Ship
         }
     }
     
+    //This stops the sound effect of AircraftCarrier
     public void stopPlay()
     {
         elevator.stop();
     }
     
+    //This is the method where the take in aniamtion is created
     public void takeIn()
     {
         if(speed == 0)

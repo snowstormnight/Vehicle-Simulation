@@ -1,10 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class RepairBoat here.
+ * This is the RepairBoat class
+ * This boat class will repair any boat taht is sink and will not crash them when they are in contact.
+ * When this class see the front ship is slower, they will try to change lane.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class RepairBoat extends Ship
 {
@@ -17,6 +19,12 @@ public class RepairBoat extends Ship
     private GreenfootSound speedUp;
     private GreenfootSound healUp;
     
+    /**
+     * This is the constructor of the RepairBoat class
+     * 
+     * @param origin This is the spawner it will spawn on
+     * @param lane This is teh lane it will move on
+     */
     public RepairBoat(VehicleSpawner origin, int lane)
     {
         super(origin, lane);
@@ -33,6 +41,7 @@ public class RepairBoat extends Ship
         speed = maxSpeed;
         save = maxSpeed;
         
+        //Below is the variables to help change lane
         boat = new GreenfootImage("Boat.png");
         sb = new ArrayList<SupplyBoat>();
         inWorld = true;
@@ -48,6 +57,12 @@ public class RepairBoat extends Ship
         healUp.setVolume(8);
     }
     
+    /**
+     * This method will be called when teh object is added to world
+     * It is mainly used to set up the checklane method
+     * 
+     * @param w This is the world the RepairBoat in
+     */
     public void addedToWorld(World w)
     {
         this.w = w;
@@ -59,13 +74,14 @@ public class RepairBoat extends Ship
         hp = 4;
     }
     
+    //This method stops the sound effect of the RepairBoat sound effect
     public void stopPlay()
     {
         speedUp.stop();
         healUp.stop();
     }
     
-    
+    //This is the act methdo of the RepairBoat class
     public void act()
     {
         
@@ -76,6 +92,7 @@ public class RepairBoat extends Ship
         
     }
     
+    //This method will check if the object is in the world
     public void checkInWorld()
     {
         if(inWorld == true && (getX() > 1100 || getX() < 0))
@@ -84,6 +101,7 @@ public class RepairBoat extends Ship
         }
     }
     
+    //This is the main method that will decide when the chnage the lane of the ship
     public void changeLaneWay()
     {
         //The codes down below is used to make sure repair ship can change lane accrutely in every lane
@@ -163,6 +181,7 @@ public class RepairBoat extends Ship
         coolTime--;
     }
     
+    //This is the boolean that checks whether it is possible to change lane
     public boolean changeLane()
     {
         Ship ahead = (Ship) getOneObjectAtOffset (direction * (int)(speed + getImage().getWidth()/2 + 4), 0, Ship.class);
@@ -174,6 +193,7 @@ public class RepairBoat extends Ship
         return false;
     }
     
+    //This is the chnage lane method for the boat is changing lane to the above
     public void changeLane1()
     {
         setRotation(-1*direction2);
@@ -182,6 +202,7 @@ public class RepairBoat extends Ship
         speedUp.play();
     }
     
+    //This is the change lane method for the boat that is changing lane below
     public void changeLane2()
     {
         setRotation(direction2);
@@ -190,8 +211,7 @@ public class RepairBoat extends Ship
         speedUp.play();
     }
     
-    
-    
+    //This is the method that will repair the sank supplyboat
     public void repair()
     {
         sb = (ArrayList<SupplyBoat>)(getIntersectingObjects(SupplyBoat.class));
@@ -211,6 +231,7 @@ public class RepairBoat extends Ship
         }
     }
     
+    //This is the method that will decide whether to check lane or not and change the speed according to the situation.
     public void drive() 
     {
         changeLaneWay();

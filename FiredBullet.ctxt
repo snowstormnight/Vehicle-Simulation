@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=FiredBullet
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ FiredBullet\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ class\ where\ the\ BattleShip\ can\ shoot\ to\ destroy\ the\ VerticalObjectSpawn\ objects\r\n\ It\ will\ spawn\ on\ the\ BattleShip\ and\ change\ its\ direction\ to\ aim\ for\ the\ VerticalObjectSpawn\ objects\ every\ act.\r\n\ Once\ it\ hits\ the\ VerticalObjectSpawn\ objects,\ it\ will\ decrease\ their\ hp\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=
 comment1.target=FiredBullet()
 comment2.params=
@@ -9,4 +9,5 @@ comment3.params=
 comment3.target=void\ moveToTarget()
 comment4.params=w
 comment4.target=void\ addedToWorld(greenfoot.World)
+comment4.text=\r\n\ This\ is\ the\ method\ gets\ call\ when\ it\ is\ added\ to\ world.\ It\ will\ create\ an\ arraylist\ to\ let\ the\ FiredBullet\ know\ where\ to\ aim\r\n\ \r\n\ @param\ w\ This\ is\ the\ world\ FiredBullet\ is\ in\r\n
 numComments=5

@@ -1,15 +1,17 @@
 #BlueJ class context
 comment0.target=Rain
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Rain\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ rain\ class.\ \r\n\ When\ the\ rain\ starts,\ the\ world\ will\ be\ covered\ by\ a\ rain\u3002\r\n\ All\ the\ ships\ excpet\ RepairBoat\ will\ be\ slow\ down\ and\ the\ sound\ effect\ will\ be\ played\u3002\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=w
 comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.text=\r\n\ This\ is\ the\ act\ that\ gets\ all\ the\ ship\ objects\ in\ the\ world\ t\ slow\ down\ them\r\n\ \r\n\ @param\ w\ This\ is\ th\ world\ rain\ spawn\r\n
 comment2.params=duration
 comment2.target=Rain(int)
+comment2.text=\r\n\ This\ is\ the\ constructor\ for\ rain\r\n\ \r\n\ @param\ duration\ This\ gives\ the\ length\ of\ time\ that\ rain\ should\ last\r\n
 comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ stopPlay()
 comment5.params=width\ height\ density
 comment5.target=greenfoot.GreenfootImage\ drawRain(int,\ int,\ int)
-comment5.text=\r\n\ density\ should\ be\ 1-100.\ 100\ will\ be\ almost\ completely\ white\r\n
+comment5.text=\r\n\ The\ method\ to\ create\ the\ rain\ effect\r\n\ \r\n\ @param\ width\ This\ is\ the\ width\ of\ the\ rain\ effect\r\n\ @param\ height\ This\ is\ the\ height\ of\ the\ rain\ effect\r\n\ @param\ density\ This\ is\ the\ density\ of\ the\ rain\ effect\r\n
 numComments=6

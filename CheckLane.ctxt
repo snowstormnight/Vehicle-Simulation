@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=CheckLane
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CheckLane\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ class\ that\ helps\ RepairBoat\ to\ decide\ whether\ change\ lane\ or\ not.\r\n\ They\ are\ invisible\ rectangles\ that\ can\ detect\ whether\ they\ are\ in\ touch\ with\ a\ boat\ and\ tell\ RepairBoat,\ and\ RepairBoat\ will\ make\ decision\ base\ on\ the\ \r\n\ result\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=width\ height\ speed\ direction
 comment1.target=CheckLane(int,\ int,\ double,\ int)
+comment1.text=\r\n\ The\ constructor\ of\ the\ CheeckLane\ class\r\n\ \r\n\ @param\ width\ This\ is\ the\ width\ of\ the\ rectangle\r\n\ @param\ height\ This\ is\ the\ height\ of\ the\ rectangle\r\n\ @param\ speed\ This\ is\ the\ speed\ it\ should\ move\ with\r\n\ @param\ direction\ This\ is\ the\ direction\ it\ should\ move\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -11,4 +12,5 @@ comment4.params=
 comment4.target=boolean\ checkSide()
 comment5.params=change
 comment5.target=void\ setSpeed(double)
+comment5.text=This\ is\ the\ method\ that\ can\ set\ the\ speed\ of\ the\ rectangle\ to\ make\ it\ move\ with\ ship\r\n\ \r\n\ \r\n\ @param\ change\ This\ is\ the\ speed\ it\ will\ change\ to\r\n
 numComments=6

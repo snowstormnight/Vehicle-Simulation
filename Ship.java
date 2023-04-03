@@ -2,7 +2,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * This is the superclass for Vehicles.
+ * This is the superclass forShips
+ * 
+ * 
+ * @author George Lu
+ * @version final 2023/4/1
  * 
  */
 public abstract class Ship extends SuperSmoothMover
@@ -20,7 +24,11 @@ public abstract class Ship extends SuperSmoothMover
     protected GreenfootSound explode;
     protected boolean oneTime;
     
-
+    /**This is the constructor for Ships
+     * 
+     * @param origin This is the spawner the ship will spawn on
+     * @param lane This will let the Ships know which lane they are on
+     */
     public Ship (VehicleSpawner origin, int lane) {
         this.origin = origin;
         
@@ -34,6 +42,7 @@ public abstract class Ship extends SuperSmoothMover
             getImage().mirrorHorizontally();
         }
         
+        //All the code below is to set up the animation for explosion
         sank = new GreenfootImage("Sink Boat.png");
         animation = new GreenfootImage[20];
         for(int i = 0; i < 20; i++)
@@ -44,17 +53,20 @@ public abstract class Ship extends SuperSmoothMover
         st.mark();
         count = 0;
         
+        //This is to set up the variables to decide the sound effect
         exploded = false;
         explode = new GreenfootSound("explode.mp3");
         explode.setVolume(25);
         oneTime = false;
     }
     
+    //This will decrease the speed of the ship
     public void rainSlow()
     {
         maxSpeed = 0.5;
     }
     
+    //This will make teh ship returns to its original speed
     public void getBack()
     {
         maxSpeed = save;
@@ -62,6 +74,7 @@ public abstract class Ship extends SuperSmoothMover
     
     public abstract void stopPlay();
     
+    //This will play the explosion sound effect when the ships' hp reach zero
     public void explodeMusic()
     {
         if(hp == 0)
@@ -109,16 +122,21 @@ public abstract class Ship extends SuperSmoothMover
         
     }   
     
+    //This is the method to decrease the hp of the ships
     public void decreaseHP()
     {
         hp--;
     }
     
+    //This is the method taht pauses the explosion sound effect for ships
     public void stopExplode()
     {
         explode.stop();
     }
     
+    /**This is the method determines whether the ship shoudl explode or not. 
+     * When the hp reaches zero, it will play the explosion animtiona nd sound effect
+     */
     public void damage()
     {
         if(hp <= 0)

@@ -1,18 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class Rain here.
+ * This is the rain class. 
+ * When the rain starts, the world will be covered by a rain。
+ * All the ships excpet RepairBoat will be slow down and the sound effect will be played。
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author George Lu
+ * @version final 2023/4/1
  */
 public class Rain extends Effect
 {
+    
     private int duration;
     private ArrayList<Ship> ship;
     private static GreenfootSound rainSound;
     private World w;
     
+    /**
+     * This is the act that gets all the ship objects in the world t slow down them
+     * 
+     * @param w This is th world rain spawn
+     */
     public void addedToWorld (World w){
         ArrayList<AircraftCarrier> a =  (ArrayList<AircraftCarrier>) w.getObjects(AircraftCarrier.class);
         for (AircraftCarrier ac : a){
@@ -31,21 +39,26 @@ public class Rain extends Effect
         
     }
     
+    /**
+     * This is the constructor for rain
+     * 
+     * @param duration This gives the length of time that rain should last
+     */
     public Rain (int duration){
         this.duration = duration;
         rainSound = new GreenfootSound("Rain1.mp3");
         rainSound.setVolume(30);
+        
     }
     
     
-    
-    
-    
+    //This is the act method for rain class
     public void act()
     {
         image = drawRain (w.getWidth(), w.getHeight(), 80);
         setImage(image);
         controlEffect(duration, 90, 90);
+        
         duration--;
         ship =  (ArrayList<Ship>) w.getObjects(Ship.class);
         if(duration == 1)
@@ -61,13 +74,18 @@ public class Rain extends Effect
         
     }
     
+    //This method will stop play the rain effect sound
     public void stopPlay()
     {
         rainSound.stop();
     }
     
     /**
-     * density should be 1-100. 100 will be almost completely white
+     * The method to create the rain effect
+     * 
+     * @param width This is the width of the rain effect
+     * @param height This is the height of the rain effect
+     * @param density This is the density of the rain effect
      */
     public static GreenfootImage drawRain (int width, int height, int density){
 

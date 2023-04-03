@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=RepairBoat
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ RepairBoat\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ RepairBoat\ class\r\n\ This\ boat\ class\ will\ repair\ any\ boat\ taht\ is\ sink\ and\ will\ not\ crash\ them\ when\ they\ are\ in\ contact.\r\n\ When\ this\ class\ see\ the\ front\ ship\ is\ slower,\ they\ will\ try\ to\ change\ lane.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=origin\ lane
 comment1.target=RepairBoat(VehicleSpawner,\ int)
+comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ RepairBoat\ class\r\n\ \r\n\ @param\ origin\ This\ is\ the\ spawner\ it\ will\ spawn\ on\r\n\ @param\ lane\ This\ is\ teh\ lane\ it\ will\ move\ on\r\n
 comment10.params=
 comment10.target=void\ repair()
 comment11.params=
@@ -11,6 +12,7 @@ comment12.params=
 comment12.target=boolean\ checkHitPedestrian()
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ This\ method\ will\ be\ called\ when\ teh\ object\ is\ added\ to\ world\r\n\ It\ is\ mainly\ used\ to\ set\ up\ the\ checklane\ method\r\n\ \r\n\ @param\ w\ This\ is\ the\ world\ the\ RepairBoat\ in\r\n
 comment3.params=
 comment3.target=void\ stopPlay()
 comment4.params=
