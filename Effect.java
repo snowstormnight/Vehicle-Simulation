@@ -14,7 +14,7 @@ public abstract class Effect extends Actor
     
     /**This method will control the transparency of the effect and the remain time. When remain time is zero, it will remove the effect.
      * 
-     * @param duration This is the totla time it should show up the world
+     * @param duration This is the total time it should show up the world
      * @param remainTime This is the current remaining time of the object
      * @param count This is the variable determines when should the object fade
      */

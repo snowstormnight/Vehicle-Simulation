@@ -18,7 +18,7 @@ public class Lightning extends Effect
     
     /**Constructor of the lightning class
      * 
-     * @param duration This is the time this efect shoudl last
+     * @param duration This is the time this efect should last
      */
     public Lightning(int duration)
     {
@@ -37,7 +37,7 @@ public class Lightning extends Effect
         thunderSound.setVolume(7);
     }
     
-    //now can cause damage to both vo and ships
+    //This is the act method of lightning
     public void act()
     {
         duration--;

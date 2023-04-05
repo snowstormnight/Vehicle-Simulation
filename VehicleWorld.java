@@ -222,6 +222,7 @@ public class VehicleWorld extends World
         ocean.setVolume(20);
     }
 
+    //The act method of the VehicleWorld
     public void act () {
         spawn();
     }
