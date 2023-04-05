@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * This is the BattleShip class
- * It will shoot bullet that can destroy the VerticalObjectSpawn objects
+ * It will shoot bullet that can destroy the VerticalObjectSpawn objects and crash the SupplyBoat it contacts with
  * 
  * @author George Lu
  * @version final 2023/4/1
@@ -58,7 +58,7 @@ public class BattleShip extends Ship
         this.w = w;
     }
     
-    //This is the not needed abstract methdo from the ship class
+    //This is the not needed abstract method from the ship class
     public void stopPlay()
     {
         

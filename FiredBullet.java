@@ -21,6 +21,7 @@ public class FiredBullet extends SuperSmoothMover
         random = Greenfoot.getRandomNumber(6);
     }
     
+    //This is the act method for FiredBullet class
     public void act()
     {
         moveToTarget();

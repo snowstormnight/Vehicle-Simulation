@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * This is the AircraftCarrier class
- * It will pick up the heal bag and take them in with sound effect and animation
+ * It will pick up the heal bag and take them in with sound effect and animation. 
+ * It will crash anu SupplyBoat it is in contact with.
  * 
  * @author George Lu
  * @version final 2023/4/1
@@ -46,7 +47,7 @@ public class AircraftCarrier extends Ship
         
         //The code below is to set the sound effect when the AircraftCarrier takes in a heal bag
         elevator = new GreenfootSound("elevator.mp3");
-        elevator.setVolume(15);
+        elevator.setVolume(10);
     }
     
     //This is the act method of the AircraftCarrier
@@ -78,7 +79,7 @@ public class AircraftCarrier extends Ship
     
     
     /**This is teh edited drive method for drive(). 
-     * This time, it will chnage its speed according to the whether condition
+     * This time, it will change its speed according to the whether condition
      */
     public void drive()
     {
@@ -129,11 +130,13 @@ public class AircraftCarrier extends Ship
         
     }
     
+    //This is the methdo that increases the hp
     public void increaseHP()
     {
         hp++;
     }
     
+    //This is the method to check if it hits the SupplyBoat
     public boolean checkHitPedestrian () {
         Supply s = (Supply)(getOneIntersectingObject(Supply.class));
         

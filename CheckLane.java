@@ -36,14 +36,14 @@ public class CheckLane extends SuperSmoothMover
         setImage(image);
     }
     
-    //This is teh act method
+    //This is the act method
     public void act()
     {
         move(speed*direction);
         
     }
     
-    //This methdo will return the height of the rectangle
+    //This method will return the height of the rectangle
     public int get()
     {
         return height;

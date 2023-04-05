@@ -3,7 +3,9 @@ import java.util.ArrayList;
 
 /**
  * This is the lightning class
- * When they 
+ * When they are spawn to the world, they will check the VerticalObjects and Ships aroun them. If they are in touch with any of them,
+ * Lightning will remove VerticalObjects and damage Ships.
+ * It will come with a sound effect as well.
  * 
  * @author George Lu 
  * @version final 2023/4/1

@@ -139,7 +139,7 @@ import java.util.ArrayList;
  * 
  * VerticalObjectsSpawn:
  * This is the class where all the VerticalObjects class spawn. 
- * They will spawn VerticalObjects every 2 sec.
+ * They will spawn VerticalObjects every 3 sec.
  * This class will move between the x-cordinate 100 and 1000.
  * When they are in contact with the FiredBullet class, their hp will be decrease. When the hp reach 0, they will be remove from the
  * class and respawn after 7 seconds.
@@ -160,12 +160,12 @@ public class VehicleWorld extends World
     
     // Instance variables / Objects
     private boolean twoWayTraffic, splitAtCenter;
-    private int laneHeight, laneCount, spaceBetweenLanes;
+    private int laneHeight, laneCount, spaceBetweenLanes, count1, playSound;
     private int[] lanePositionsY;
     private VehicleSpawner[] laneSpawners;
+    private GreenfootSound ocean;
     public static boolean raining;
     private VerticalObjectSpawn[] verticalSpawn;
-    private GreenfootSound ocean;
 
     
     /**
@@ -191,6 +191,8 @@ public class VehicleWorld extends World
         spaceBetweenLanes = 1;
         splitAtCenter = true;
         twoWayTraffic = true;
+        count1 = 20;
+        playSound = 3600;
         
         //add border for the world
         addObject(new Border(false), 500, -500);
@@ -218,8 +220,8 @@ public class VehicleWorld extends World
         }
         
         //To set up the background sound
-        ocean = new GreenfootSound("ocean.mp3");
-        ocean.setVolume(20);
+        ocean = new GreenfootSound("ocean1.mp3");
+        ocean.setVolume(13);
     }
 
     //The act method of the VehicleWorld
@@ -227,7 +229,7 @@ public class VehicleWorld extends World
         spawn();
     }
     
-    //start to play the ocean background effect when greenfoot start.
+    //This will play the background sound after greenfoot started
     public void started()
     {
         ocean.playLoop();
@@ -236,7 +238,7 @@ public class VehicleWorld extends World
     //This method will be played when the greenfoot stop running. The main purpose is to stop those sound effects.
     public void stopped()
     {
-        ocean.stop();
+        
         ArrayList<Effect> e = (ArrayList<Effect>) getObjects(Effect.class);
         for(Effect e1 : e)
         {

@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * This is the superclass forShips
+ * This is the superclass forShips. It contains basic methods like move and explode animation method. 
+ * It also contains method to decrease its own hp and check the objects intersect with it.
  * 
  * 
  * @author George Lu
@@ -72,6 +73,7 @@ public abstract class Ship extends SuperSmoothMover
         maxSpeed = save;
     }
     
+    //Abstract method to make sure every sub-class has it
     public abstract void stopPlay();
     
     //This will play the explosion sound effect when the ships' hp reach zero
@@ -135,7 +137,7 @@ public abstract class Ship extends SuperSmoothMover
     }
     
     /**This is the method determines whether the ship shoudl explode or not. 
-     * When the hp reaches zero, it will play the explosion animtiona nd sound effect
+     * When the hp reaches zero, it will play the explosion animtiona and sound effect
      */
     public void damage()
     {

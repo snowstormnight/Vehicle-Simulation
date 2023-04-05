@@ -15,7 +15,7 @@ public abstract class VerticalObjects extends SuperSmoothMover
     protected int direction; // direction is always -1 or 1, for moving down or up, respectively, have ,count before
     protected SimpleTimer timer;
     
-    /**This is teh constructor of the VerticalObjects class
+    /**This is the constructor of the VerticalObjects class
      * 
      * @param direction This is the direction the VerticalObjects move
      */

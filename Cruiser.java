@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * This is the Crusier class.
- * There is nothing special about thsi class as it is for increase the diversity
+ * There is nothing special about thsi class as it is for increase the diversity.
+ * It will crash any SupplyBoat class that it is in contact with.
  * 
  * @author George Lu
  * @version final 2023/4/1

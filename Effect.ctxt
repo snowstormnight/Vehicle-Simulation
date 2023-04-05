@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Effect
-comment0.text=\r\n\ This\ is\ the\ effect\ class.\ This\ class\ will\ form\ some\ effects\ as\ time\ goes.\r\n\ Those\ effects\ will\ affect\ the\ ships.\r\n\ \r\n\ @author\ George\ Lu\ \r\n\ @version\ final\ 2023/4/1\r\n
+comment0.text=\r\n\ This\ is\ the\ effect\ class.\ This\ class\ will\ form\ some\ effects\ and\ disappear\ as\ time\ goes.\r\n\ Those\ effects\ will\ affect\ the\ ships.\r\n\ \r\n\ @author\ George\ Lu\ \r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=duration\ remainTime\ count
 comment1.target=void\ controlEffect(int,\ int,\ int)
 comment1.text=This\ method\ will\ control\ the\ transparency\ of\ the\ effect\ and\ the\ remain\ time.\ When\ remain\ time\ is\ zero,\ it\ will\ remove\ the\ effect.\r\n\ \r\n\ @param\ duration\ This\ is\ the\ total\ time\ it\ should\ show\ up\ the\ world\r\n\ @param\ remainTime\ This\ is\ the\ current\ remaining\ time\ of\ the\ object\r\n\ @param\ count\ This\ is\ the\ variable\ determines\ when\ should\ the\ object\ fade\r\n

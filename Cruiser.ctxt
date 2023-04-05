@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Cruiser
-comment0.text=\r\n\ This\ is\ the\ Crusier\ class.\r\n\ There\ is\ nothing\ special\ about\ thsi\ class\ as\ it\ is\ for\ increase\ the\ diversity\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
+comment0.text=\r\n\ This\ is\ the\ Crusier\ class.\r\n\ There\ is\ nothing\ special\ about\ thsi\ class\ as\ it\ is\ for\ increase\ the\ diversity.\r\n\ It\ will\ crash\ any\ SupplyBoat\ class\ that\ it\ is\ in\ contact\ with.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=origin\ lane
 comment1.target=Cruiser(VehicleSpawner,\ int)
 comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ Cruiser\r\n\ \r\n\ @param\ origin\ This\ is\ the\ spawner\ it\ will\ spawn\ on\r\n\ @param\ lane\ This\ is\ teh\ lane\ it\ will\ move\ on\r\n

@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This is the effect class. This class will form some effects as time goes.
+ * This is the effect class. This class will form some effects and disappear as time goes.
  * Those effects will affect the ships.
  * 
  * @author George Lu 
@@ -32,5 +32,6 @@ public abstract class Effect extends Actor
         }
     }
     
+    //This make sures a stopPlay method for all effect class
     public abstract void stopPlay();
 }

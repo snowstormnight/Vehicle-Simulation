@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=VerticalObjectSpawn
-comment0.text=\r\n\ This\ is\ the\ VerticalObjectSpawn\ class.\r\n\ The\ mission\ of\ this\ class\ is\ to\ spawn\ VerticalObjects\ and\ move\ horizontally.\r\n\ Thius\ class\ also\ has\ hp\ to\ determine\ whether\ they\ should\ exist\ or\ not.\ \r\n\ When\ they\ are\ hit\ by\ the\ FiredBullet\ class,\ their\ hp\ will\ be\ decrease\ by\ 1.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
+comment0.text=\r\n\ This\ is\ the\ VerticalObjectSpawn\ class.\r\n\ The\ mission\ of\ this\ class\ is\ to\ spawn\ VerticalObjects\ and\ move\ horizontally.\r\n\ This\ class\ also\ has\ hp\ to\ determine\ whether\ they\ should\ exist\ or\ not.\ \r\n\ When\ they\ are\ hit\ by\ the\ FiredBullet\ class,\ their\ hp\ will\ be\ decrease\ by\ 1.\r\n\ \r\n\ @author\ George\ Lu\r\n\ @version\ final\ 2023/4/1\r\n
 comment1.params=x\ y\ topOrNot
 comment1.target=VerticalObjectSpawn(int,\ int,\ int)
 comment1.text=\r\n\ This\ is\ the\ constructor\ of\ the\ VerticalObjectsSpawn\ class\r\n\ \r\n\ @param\ x\ This\ is\ the\ x\ cordinate\ it\ should\ spawn\r\n\ @param\ y\ This\ is\ the\ y\ cordinate\ it\ should\ spawn\r\n\ @param\ topOrNot\ This\ is\ the\ integer\ that\ determines\ whether\ this\ object\ is\ at\ top\ or\ bottom\r\n

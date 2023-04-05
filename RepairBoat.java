@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
  * This is the RepairBoat class
- * This boat class will repair any boat taht is sink and will not crash them when they are in contact.
+ * This boat class will repair any boat that is sink and will not crash them when they are in contact.
  * When this class see the front ship is slower, they will try to change lane.
  * 
  * @author George Lu
@@ -58,7 +58,7 @@ public class RepairBoat extends Ship
     }
     
     /**
-     * This method will be called when teh object is added to world
+     * This method will be called when the object is added to world
      * It is mainly used to set up the checklane method
      * 
      * @param w This is the world the RepairBoat in
@@ -81,7 +81,7 @@ public class RepairBoat extends Ship
         healUp.stop();
     }
     
-    //This is the act methdo of the RepairBoat class
+    //This is the act method of the RepairBoat class
     public void act()
     {
         
@@ -193,7 +193,7 @@ public class RepairBoat extends Ship
         return false;
     }
     
-    //This is the chnage lane method for the boat is changing lane to the above
+    //This is the change lane method for the boat is changing lane to the above
     public void changeLane1()
     {
         setRotation(-1*direction2);
@@ -202,7 +202,7 @@ public class RepairBoat extends Ship
         speedUp.play();
     }
     
-    //This is the change lane method for the boat that is changing lane below
+    //This is the change lane method for the boat that is changing to lane below
     public void changeLane2()
     {
         setRotation(direction2);
@@ -252,7 +252,7 @@ public class RepairBoat extends Ship
         
     }   
     
-    
+    //Not needed abstract method
     public boolean checkHitPedestrian()
     {
         return false;

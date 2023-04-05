@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * This is the VerticalObjectSpawn class.
  * The mission of this class is to spawn VerticalObjects and move horizontally.
- * Thius class also has hp to determine whether they should exist or not. 
+ * This class also has hp to determine whether they should exist or not. 
  * When they are hit by the FiredBullet class, their hp will be decrease by 1.
  * 
  * @author George Lu
@@ -35,7 +35,7 @@ public class VerticalObjectSpawn extends Actor
         this.x = x;
         this.y = y;
         this.topOrNot = topOrNot;
-        count = 120;
+        count = 180;
         hp = 10;
         nothing = new GreenfootImage("nothing.png");
         random = Greenfoot.getRandomNumber(4);
@@ -54,7 +54,7 @@ public class VerticalObjectSpawn extends Actor
         speed = 2;
     }
     
-    //This is teh act method of VerticalObjectsSpawn class
+    //This is the act method of VerticalObjectsSpawn class
     public void act()
     {
         moveAround();
@@ -67,7 +67,7 @@ public class VerticalObjectSpawn extends Actor
         
     }
     
-    //This is the method that respawn this spawn place after the dead time is passed.
+    //This is the method that respawn this object after the dead time is passed.
     public void respawn()
     {
         if(respawnTime == 0)
@@ -82,7 +82,7 @@ public class VerticalObjectSpawn extends Actor
     //This is the method that determine whether a VerticalObjects should be add or not
     public void addvo()
     {
-        if(count%120 == 0 && hp > 0)
+        if(count%180 == 0 && hp > 0)
         {
             addSpawner(topOrNot);
         }
@@ -116,7 +116,7 @@ public class VerticalObjectSpawn extends Actor
         return hp;
     }
     
-    //This is the method taht determines which VerticalObject should be add.
+    //This is the method that determines which VerticalObject should be add.
     public void addSpawner(int direction)
     {
         int verticalObjects = Greenfoot.getRandomNumber(4);
@@ -137,7 +137,7 @@ public class VerticalObjectSpawn extends Actor
         }
     }
     
-    //This is the methdo that ensure this object will move around and will be in the world.
+    //This is the method that ensure this object will move around and will be in the world.
     public void moveAround()
     {
         if(Greenfoot.getRandomNumber(240) == 0)
